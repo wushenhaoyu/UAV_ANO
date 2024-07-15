@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "ano_pid.h": "c",
+        "ano_imu_data.h": "c",
+        "drv_usart.h": "c",
+        "user_task_schduler.h": "c"
+    }
+}
