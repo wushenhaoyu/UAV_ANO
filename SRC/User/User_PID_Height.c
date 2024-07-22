@@ -39,13 +39,13 @@ void User_PID_Height_Ctrl(float dT_s)
 
 void Set_Target_Height(float data)
 {
-    if(data <0.4)
+    if(data <40)
     {
-        height_target = 0.4;
+        height_target = 40;
     }
-    else if(data >1.8)
+    else if(data >240)
     {
-        height_target = 1.8;
+        height_target = 240;
     }
     else
     {

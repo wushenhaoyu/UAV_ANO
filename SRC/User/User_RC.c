@@ -14,6 +14,14 @@ void RC_task(u8 ms)
 				{
 						one_key_take_off();
 				}
+				else if(RC_task_time_2 == 10000)
+				{
+						Set_Target_Height(170);
+				}
+				else if(RC_task_time_2 == 17000)
+				{
+						Set_Target_Height(80);
+				}
     }
     else{
         if(RC_task_time_2 > 0)
