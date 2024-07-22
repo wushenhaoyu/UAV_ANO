@@ -33,8 +33,8 @@
 .\build\bsp_init.o: SRC\applications\Ano_USB.h
 .\build\bsp_init.o: .\SRC\drivers\Drv_time.h
 .\build\bsp_init.o: .\SRC\drivers\Drv_usart.h
-.\build\bsp_init.o: .\SRC\drivers\Drv_Gps.h
 .\build\bsp_init.o: .\SRC\applications\include.h
+.\build\bsp_init.o: .\SRC\drivers\Drv_Gps.h
 .\build\bsp_init.o: .\SRC\drivers\Drv_BSP.h
 .\build\bsp_init.o: .\SRC\drivers\Drv_pwm_out.h
 .\build\bsp_init.o: .\SRC\drivers\Drv_led.h

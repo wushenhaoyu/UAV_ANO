@@ -3,6 +3,22 @@
         "ano_pid.h": "c",
         "ano_imu_data.h": "c",
         "drv_usart.h": "c",
-        "user_task_schduler.h": "c"
+        "user_task_schduler.h": "c",
+        "user_ros_datarecieve.h": "c",
+        "include.h": "c",
+        "ano_flightctrl.h": "c",
+        "ano_magprocess.h": "c",
+        "user_pid_height.h": "c",
+        "user_pid_yaw.h": "c",
+        "stdio.h": "c",
+        "user_openmv_datarecieve.h": "c",
+        "array": "c",
+        "string": "c",
+        "string_view": "c",
+        "span": "c",
+        "user_ros_controlfly.h": "c",
+        "stm32f4xx.h": "c",
+        "user_openmv_cal.h": "c",
+        "ano_parameter.h": "c"
     }
 }

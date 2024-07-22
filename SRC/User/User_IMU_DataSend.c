@@ -15,6 +15,8 @@ void User_IMU_DataSend()
     unsigned char data_to_send[36];
     unsigned char header = 0xAA; // Header byte
     unsigned char trailer = 0xAF; // Trailer byte
+    unsigned char func = 0x01;
+    unsigned char length = 36;
     
     for (int i = 0 ; i < 3 ; i++)
     {
@@ -32,9 +34,26 @@ void User_IMU_DataSend()
     // Add header before the data
     Usart2_Send(&header, 1);
 
+    Usart2_Send(&func, 1);
+
+    Usart2_Send(&length, 1);
+
+
     // Send the IMU data
     Usart2_Send(data_to_send, 36); // Sending 12 bytes of data
 
     // Add trailer after the data
+    Usart2_Send(&trailer, 1);
+}
+
+void User_DataSend(u8 func,u8 length,u8 *data)
+{
+    unsigned char data_to_send[length];
+    unsigned char header = 0xAA; // Header byte
+    unsigned char trailer = 0xAF; // Trailer byte
+    Usart2_Send(&header, 1);
+    Usart2_Send(&func, 1);
+    Usart2_Send(&length, 1);
+    Usart2_Send(data, length);
     Usart2_Send(&trailer, 1);
 }

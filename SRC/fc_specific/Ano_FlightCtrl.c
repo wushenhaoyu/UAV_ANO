@@ -21,36 +21,46 @@
 //#include "Ano_LED.h"
 #include "Ano_ProgramCtrl_User.h"
 #include "Drv_OpenMV.h"
-
+#include "User_PID_Height.h"
+#include "User_PID_XY.h"
+#include "User_PID_YAW.h"
 /////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////
 
-/*PID参数初始化*/
+/*PID?????????*/
 void All_PID_Init(void)
 {
 
-	/*姿态控制，角速度PID初始化*/
+	/*?????????????PID?????*/
 	Att_1level_PID_Init();
 	
-	/*姿态控制，角度PID初始化*/
+	/*???????????PID?????*/
 	Att_2level_PID_Init();
 	
-	/*高度控制，高度速度PID初始化*/
+	/*?????????????PID?????*/
 	Alt_1level_PID_Init();	
 	
-	/*高度控制，高度PID初始化*/
+	/*??????????PID?????*/
 	Alt_2level_PID_Init();
 	
 	
-	/*位置速度控制PID初始化*/
+	/*λ????????PID?????*/
 	Loc_1level_PID_Init();
 	
+	/*用户高度环初始化*/
+	User_PID_Height_Init();
+
+	/*用户航向角环初始化*/
+	User_PID_yaw_Init();
+
+	/*用户XY位置环初始化*/
+	User_PID_XY_Init();
 }
 
-/*控制参数改变任务*/
+/*??????????????*/
 void ctrl_parameter_change_task()
 {
 
@@ -78,7 +88,7 @@ void ctrl_parameter_change_task()
 }
 
 
-/*一键翻滚（暂无）*/
+/*??????????????*/
 void one_key_roll()
 {
 
@@ -94,7 +104,7 @@ void one_key_roll()
 }
 
 static u16 one_key_taof_start;
-/*一键起飞任务（主要功能为延迟）*/
+/*??????????????????????*/
 void one_key_take_off_task(u16 dt_ms)
 {
 	if(one_key_taof_start != 0)
@@ -108,8 +118,8 @@ void one_key_take_off_task(u16 dt_ms)
 				if(flag.auto_take_off_land == AUTO_TAKE_OFF_NULL)
 				{
 					flag.auto_take_off_land = AUTO_TAKE_OFF;
-					//解锁、起飞
-
+					//?????????
+		
 					flag.taking_off = 1;
 				}
 			
@@ -122,7 +132,7 @@ void one_key_take_off_task(u16 dt_ms)
 	}
 
 }
-/*一键起飞*/
+/*??????*/
 void one_key_take_off()
 {
 	if(flag.unlock_err == 0)
@@ -134,7 +144,7 @@ void one_key_take_off()
 		}
 	}
 }
-/*一键降落*/
+/*???????*/
 void one_key_land()
 {
 	flag.auto_take_off_land = AUTO_LAND;
@@ -153,7 +163,7 @@ extern s32 ref_height_get;
 
 float stop_baro_hpf;
 
-/*降落检测*/
+/*??????*/
 
 static s16 ld_delay_cnt ;
 void land_discriminat(s16 dT_ms)
@@ -163,7 +173,7 @@ void land_discriminat(s16 dT_ms)
 //	acc_delta = imu_data.w_acc[Z]- acc_old;
 //	acc_old = imu_data.w_acc[Z];
 	
-	/*油门归一值小于0.1  或者启动自动降落*/
+	/*???????С??0.1  ???????????????*/
 	if((fs.speed_set_h_norm[Z] < 0.1f) || flag.auto_take_off_land == AUTO_LAND)
 	{
 		if(ld_delay_cnt>0)
@@ -176,11 +186,11 @@ void land_discriminat(s16 dT_ms)
 		ld_delay_cnt = 200;
 	}
 	
-	/*意义是：如果向上推了油门，就需要等垂直方向加速度小于200cm/s2 保持200ms才开始检测*/	
+	/*????????????????????????????????????????С??200cm/s2 ????200ms???????*/	
 	if(ld_delay_cnt <= 0 && (flag.thr_low || flag.auto_take_off_land == AUTO_LAND) )
 	{
-		/*油门最终输出量小于250并且没有在手动解锁上锁过程中，持续1秒，认为着陆，然后上锁*/
-		if(mc.ct_val_thr<250 && flag.unlock_sta == 1 && flag.locking != 2)//ABS(wz_spe_f1.out <20 ) //还应当 与上速度条件，速度小于正20厘米每秒。
+		/*?????????????С??250?????????????????????????У?????1?????????????????*/
+		if(mc.ct_val_thr<250 && flag.unlock_sta == 1 && flag.locking != 2)//ABS(wz_spe_f1.out <20 ) //????? ????????????????С????20???????
 		{
 			if(landing_cnt<1500)
 			{
@@ -214,18 +224,18 @@ void land_discriminat(s16 dT_ms)
 }
 
 
-/*飞行状态任务*/
+/*??????????*/
 
 void Flight_State_Task(u8 dT_ms,s16 *CH_N)
 {
 	s16 thr_deadzone;
 	static float max_speed_lim,vel_z_tmp[2];
-	/*设置油门摇杆量*/
+	/*?????????????*/
 	thr_deadzone = (flag.wifi_ch_en != 0) ? 0 : 50;
 	fs.speed_set_h_norm[Z] = my_deadzone(CH_N[CH_THR],0,thr_deadzone) *0.0023f;
 	fs.speed_set_h_norm_lpf[Z] += 0.5f *(fs.speed_set_h_norm[Z] - fs.speed_set_h_norm_lpf[Z]);
 	
-	/*推油门起飞*/
+	/*?????????*/
 	if(flag.unlock_sta)
 	{	
 		if(fs.speed_set_h_norm[Z]>0.01f && flag.motor_preparation == 1) // 0-1
@@ -246,34 +256,34 @@ void Flight_State_Task(u8 dT_ms,s16 *CH_N)
 		}
 		else
 		{
-			/*起飞后1秒，认为已经在飞行*/
+			/*????1?????????????*/
 			flag.flying = 1;  
 		}
 		
 		if(fs.speed_set_h_norm[Z]>0)
 		{
-			/*设置上升速度*/
+			/*???????????*/
 			vel_z_tmp[0] = (fs.speed_set_h_norm_lpf[Z] *MAX_Z_SPEED_UP);
 		}
 		else
 		{
-			/*设置下降速度*/
+			/*??????????*/
 			vel_z_tmp[0] = (fs.speed_set_h_norm_lpf[Z] *MAX_Z_SPEED_DW);
 		}
 
-		//飞控系统Z速度目标量综合设定
+		//?????Z????????????趨
 		vel_z_tmp[1] = vel_z_tmp[0] + program_ctrl.vel_cmps_h[Z] + pc_user.vel_cmps_set_z;
 		//
 		vel_z_tmp[1] = LIMIT(vel_z_tmp[1],fc_stv.vel_limit_z_n,fc_stv.vel_limit_z_p);
 		//
-		fs.speed_set_h[Z] += LIMIT((vel_z_tmp[1] - fs.speed_set_h[Z]),-0.8f,0.8f);//限制增量幅度
+		fs.speed_set_h[Z] += LIMIT((vel_z_tmp[1] - fs.speed_set_h[Z]),-0.8f,0.8f);//????????????
 	}
 	else
 	{
 		fs.speed_set_h[Z] = 0 ;
 	}
 	float speed_set_tmp[2];
-	/*速度设定量，正负参考ANO坐标参考方向*/
+	/*????趨?????????ο?ANO????ο?????*/
 	fs.speed_set_h_norm[X] = (my_deadzone(+CH_N[CH_PIT],0,50) *0.0022f);
 	fs.speed_set_h_norm[Y] = (my_deadzone(-CH_N[CH_ROL],0,50) *0.0022f);
 		
@@ -284,13 +294,13 @@ void Flight_State_Task(u8 dT_ms,s16 *CH_N)
 	
 	if(switchs.of_flow_on && !switchs.gps_on )
 	{
-		max_speed_lim = 3.0f *wcz_hei_fus.out;
+		max_speed_lim = 3.0f *jsdata.of_alt;
 		max_speed_lim = LIMIT(max_speed_lim,50,200);
 	}
 	
 	fc_stv.vel_limit_xy = max_speed_lim;
 	
-	//飞控系统XY速度目标量综合设定
+	//?????XY????????????趨
 	speed_set_tmp[X] = fc_stv.vel_limit_xy *fs.speed_set_h_norm_lpf[X] + program_ctrl.vel_cmps_h[X] + pc_user.vel_cmps_set_h[X];
 	speed_set_tmp[Y] = fc_stv.vel_limit_xy *fs.speed_set_h_norm_lpf[Y] + program_ctrl.vel_cmps_h[Y] + pc_user.vel_cmps_set_h[Y];
 	
@@ -299,13 +309,13 @@ void Flight_State_Task(u8 dT_ms,s16 *CH_N)
 	fs.speed_set_h[X] = fs.speed_set_h_cms[X];
 	fs.speed_set_h[Y] = fs.speed_set_h_cms[Y];	
 	
-	/*调用检测着陆的函数*/
+	/*???ü??????????*/
 	land_discriminat(dT_ms);
 	
-	/*倾斜过大上锁*/
+	/*??б????????*/
 	if(rolling_flag.rolling_step == ROLL_END)
 	{
-		if(imu_data.z_vec[Z]<0.25f)//75度  ////////////////////////////////////////*************************** 倾斜过大上锁，慎用。
+		if(imu_data.z_vec[Z]<0.25f)//75??  ////////////////////////////////////////*************************** ??б?????????????á?
 		{
 			//
 			if(mag.mag_CALIBRATE==0)
@@ -317,7 +327,7 @@ void Flight_State_Task(u8 dT_ms,s16 *CH_N)
 
 	}	
 		//////////////////////////////////////////////////////////
-	/*校准中，复位重力方向*/
+	/*У??У???λ????????*/
 	if(st_imu_cali.gyr_cali_on != 0 || st_imu_cali.acc_cali_on != 0)
 	{
 		if(flag.unlock_sta==0)
@@ -326,12 +336,12 @@ void Flight_State_Task(u8 dT_ms,s16 *CH_N)
 		}
 	}
 	
-	/*复位重力方向时，认为传感器失效*/
+	/*??λ?????????????????????Ч*/
 	if(imu_state.G_reset == 1)
 	{
 		flag.sensor_imu_ok = 0;
 		LED_STA.rst_imu = 1;
-		WCZ_Data_Reset(); //复位高度数据融合
+		WCZ_Data_Reset(); //??λ??????????
 	}
 	else if(imu_state.G_reset == 0)
 	{	
@@ -343,7 +353,7 @@ void Flight_State_Task(u8 dT_ms,s16 *CH_N)
 		}
 	}
 	
-	/*飞行状态复位*/
+	/*????????λ*/
 	if(flag.unlock_sta == 0)
 	{
 		flag.flying = 0;
@@ -354,7 +364,7 @@ void Flight_State_Task(u8 dT_ms,s16 *CH_N)
 		
 		flag.rc_loss_back_home = 0;
 		
-		//复位融合
+		//??λ???
 		if(flag.taking_off == 0)
 		{
 //			wxyz_fusion_reset();
@@ -381,7 +391,7 @@ void Swtich_State_Task(u8 dT_ms)
 	
 	//
 	sens_hd_check.of_ok = (ano_of.work_sta*ano_of.link_sta);
-	//光流模块
+	//???????
 	if(sens_hd_check.of_ok || sens_hd_check.of_df_ok)
 	{
 		//
@@ -397,7 +407,7 @@ void Swtich_State_Task(u8 dT_ms)
 		}
 		
 		//
-		if(jsdata.of_qua>50 )//|| flag.flying == 0) //光流质量大于50 /*或者在飞行之前*/，认为光流可用，判定可用延迟时间为1秒
+		if(jsdata.of_qua>50 )//|| flag.flying == 0) //????????????50 /*???????????*/???????????????ж????????????1??
 		{
 			if(of_quality_delay<500)
 			{
@@ -414,19 +424,19 @@ void Swtich_State_Task(u8 dT_ms)
 			of_quality_ok = 0;
 		}
 		
-		//光流高度600cm内有效
+		//???????600cm????Ч
 		if(jsdata.of_alt<600)
 		{
 			//		
 			jsdata.valid_of_alt_cm = jsdata.of_alt;
-			//延时1.5秒判断激光高度是否有效
+			//???1.5???ж???????????Ч
 			if(of_alt_delay<1000)
 			{
 				of_alt_delay += dT_ms;			
 			}
 			else
 			{
-				//判定高度有效
+				//?ж??????Ч
 				of_alt_ok = 1;
 				of_tof_on_tmp = 1;
 			}
@@ -440,7 +450,7 @@ void Swtich_State_Task(u8 dT_ms)
 			}
 			else
 			{
-				//判定高度无效
+				//?ж??????Ч
 				of_alt_ok = 0;
 				of_tof_on_tmp = 0;
 			}				
@@ -474,7 +484,7 @@ void Swtich_State_Task(u8 dT_ms)
 		switchs.of_flow_on = switchs.of_tof_on = 0;
 	}
 	
-	//激光模块
+	//???????
 	if(sens_hd_check.tof_ok)
 	{
 		if(0)//(Laser_height_mm<1900)
@@ -538,7 +548,7 @@ void Flight_Mode_Set(u8 dT_ms)
 	Speed_Mode_Switch();
 
 	
-	if(speed_mode_old != flag.speed_mode) //状态改变
+	if(speed_mode_old != flag.speed_mode) //?????
 	{
 		speed_mode_old = flag.speed_mode;
 		//xy_speed_pid_init(flag.speed_mode);////////////
@@ -562,7 +572,7 @@ void Flight_Mode_Set(u8 dT_ms)
 	
 	
 	
-	if(flight_mode_old != flag.flight_mode) //摇杆对应模式状态改变
+	if(flight_mode_old != flag.flight_mode) //????????????
 	{
 		flight_mode_old = flag.flight_mode;
 		
@@ -570,9 +580,9 @@ void Flight_Mode_Set(u8 dT_ms)
 
 	}
 	//
-	if(rc_in.no_signal==0)//flag.rc_loss ==0)//接收机有信号
+	if(rc_in.no_signal==0)//flag.rc_loss ==0)//??????????
 	{
-		//CH_N[]+1500为上位机显示通道值
+		//CH_N[]+1500???λ?????????
 		if(CH_N[AUX2]<-300)//<1200
 		{
 			flag.flight_mode2 = 0;

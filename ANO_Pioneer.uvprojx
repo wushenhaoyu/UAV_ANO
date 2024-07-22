@@ -504,6 +504,11 @@
               <FileType>5</FileType>
               <FilePath>.\SRC\applications\Ano_OF_DecoFusion.h</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>User</GroupName>
+          <Files>
             <File>
               <FileName>User_IMU_DataSend.c</FileName>
               <FileType>1</FileType>
@@ -513,6 +518,26 @@
               <FileName>User_IMU_DataSend.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\SRC\User\User_IMU_DataSend.h</FilePath>
+            </File>
+            <File>
+              <FileName>User_PID_Height.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SRC\User\User_PID_Height.c</FilePath>
+            </File>
+            <File>
+              <FileName>User_PID_Height.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\SRC\User\User_PID_Height.h</FilePath>
+            </File>
+            <File>
+              <FileName>User_ROS_ControlFly.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SRC\User\User_ROS_ControlFly.c</FilePath>
+            </File>
+            <File>
+              <FileName>User_ROS_ControlFly.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\SRC\User\User_ROS_ControlFly.h</FilePath>
             </File>
             <File>
               <FileName>User_ROS_DataRecieve.c</FileName>
@@ -535,14 +560,64 @@
               <FilePath>.\SRC\User\User_Task_Schduler.h</FilePath>
             </File>
             <File>
-              <FileName>User_ROS_ControlFly.c</FileName>
+              <FileName>User_RC.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\SRC\User\User_ROS_ControlFly.c</FilePath>
+              <FilePath>.\SRC\User\User_RC.c</FilePath>
             </File>
             <File>
-              <FileName>User_ROS_ControlFly.h</FileName>
+              <FileName>User_RC.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\SRC\User\User_ROS_ControlFly.h</FilePath>
+              <FilePath>.\SRC\User\User_RC.h</FilePath>
+            </File>
+            <File>
+              <FileName>User_PID_XY.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SRC\User\User_PID_XY.c</FilePath>
+            </File>
+            <File>
+              <FileName>User_PID_XY.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\SRC\User\User_PID_XY.h</FilePath>
+            </File>
+            <File>
+              <FileName>User_PID_YAW.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SRC\User\User_PID_YAW.c</FilePath>
+            </File>
+            <File>
+              <FileName>User_PID_YAW.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\SRC\User\User_PID_YAW.h</FilePath>
+            </File>
+            <File>
+              <FileName>User_OPENMV_DataRecieve.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SRC\User\User_OPENMV_DataRecieve.c</FilePath>
+            </File>
+            <File>
+              <FileName>User_OPENMV_DataRecieve.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\SRC\User\User_OPENMV_DataRecieve.h</FilePath>
+            </File>
+            <File>
+              <FileName>User_OPENMV_Cal.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SRC\User\User_OPENMV_Cal.c</FilePath>
+            </File>
+            <File>
+              <FileName>User_OPENMV_Cal.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\SRC\User\User_OPENMV_Cal.h</FilePath>
+            </File>
+            <File>
+              <FileName>User_WayPoint_Control.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\SRC\User\User_WayPoint_Control.h</FilePath>
+            </File>
+            <File>
+              <FileName>User_WayPonit_Control.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SRC\User\User_WayPonit_Control.c</FilePath>
             </File>
           </Files>
         </Group>

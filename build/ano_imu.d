@@ -37,6 +37,6 @@
 .\build\ano_imu.o: .\SRC\applications\Ano_USB.h
 .\build\ano_imu.o: .\SRC\drivers\Drv_time.h
 .\build\ano_imu.o: .\SRC\drivers\Drv_usart.h
-.\build\ano_imu.o: .\SRC\drivers\Drv_Gps.h
 .\build\ano_imu.o: .\SRC\applications\include.h
+.\build\ano_imu.o: .\SRC\drivers\Drv_Gps.h
 .\build\ano_imu.o: .\SRC\drivers\Drv_BSP.h

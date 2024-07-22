@@ -33,6 +33,6 @@
 .\build\main.o: SRC\applications\Ano_USB.h
 .\build\main.o: .\SRC\drivers\Drv_time.h
 .\build\main.o: .\SRC\drivers\Drv_usart.h
-.\build\main.o: .\SRC\drivers\Drv_Gps.h
 .\build\main.o: .\SRC\applications\include.h
+.\build\main.o: .\SRC\drivers\Drv_Gps.h
 .\build\main.o: .\SRC\drivers\Drv_BSP.h

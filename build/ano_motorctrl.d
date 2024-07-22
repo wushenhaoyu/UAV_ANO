@@ -38,8 +38,8 @@
 .\build\ano_motorctrl.o: .\SRC\applications\Ano_USB.h
 .\build\ano_motorctrl.o: .\SRC\drivers\Drv_time.h
 .\build\ano_motorctrl.o: .\SRC\drivers\Drv_usart.h
-.\build\ano_motorctrl.o: .\SRC\drivers\Drv_Gps.h
 .\build\ano_motorctrl.o: .\SRC\applications\include.h
+.\build\ano_motorctrl.o: .\SRC\drivers\Drv_Gps.h
 .\build\ano_motorctrl.o: .\SRC\drivers\Drv_BSP.h
 .\build\ano_motorctrl.o: .\SRC\drivers\Drv_spl06.h
 .\build\ano_motorctrl.o: .\SRC\fc_general\Ano_Imu.h

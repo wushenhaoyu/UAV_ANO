@@ -33,8 +33,8 @@
 .\build\ano_scheduler.o: SRC\applications\Ano_USB.h
 .\build\ano_scheduler.o: .\SRC\drivers\Drv_time.h
 .\build\ano_scheduler.o: .\SRC\drivers\Drv_usart.h
-.\build\ano_scheduler.o: .\SRC\drivers\Drv_Gps.h
 .\build\ano_scheduler.o: .\SRC\applications\include.h
+.\build\ano_scheduler.o: .\SRC\drivers\Drv_Gps.h
 .\build\ano_scheduler.o: .\SRC\drivers\Drv_BSP.h
 .\build\ano_scheduler.o: SRC\applications\Ano_RC.h
 .\build\ano_scheduler.o: .\SRC\drivers\Drv_led.h
@@ -68,3 +68,9 @@
 .\build\ano_scheduler.o: .\SRC\AnoImu\Ano_Imu_Task.h
 .\build\ano_scheduler.o: .\SRC\User\User_IMU_DataSend.h
 .\build\ano_scheduler.o: .\SRC\AnoImu\Ano_Imu_Data.h
+.\build\ano_scheduler.o: .\SRC\User\User_RC.h
+.\build\ano_scheduler.o: .\SRC\applications\Ano_ProgramCtrl_User.h
+.\build\ano_scheduler.o: .\SRC\User\User_PID_YAW.h
+.\build\ano_scheduler.o: .\SRC\User\User_PID_Height.h
+.\build\ano_scheduler.o: .\SRC\User\User_PID_XY.h
+.\build\ano_scheduler.o: .\SRC\User\User_OPENMV_Cal.h

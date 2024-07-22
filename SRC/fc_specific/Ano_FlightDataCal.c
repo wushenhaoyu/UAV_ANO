@@ -16,9 +16,9 @@
 #include "Ano_Imu_Data.h"
 
 /*============================================================================
-¸üÐÂ£º
-201908022235-Jyoun£ºµ÷Õûwcz_acc_useµÄÂË²¨ÏµÊý¡£
-202011232135-Jyoun£º¸Ä088Çý¶¯¡£
+ï¿½ï¿½ï¿½Â£ï¿½
+201908022235-Jyounï¿½ï¿½ï¿½ï¿½ï¿½ï¿½wcz_acc_useï¿½ï¿½ï¿½Ë²ï¿½Ïµï¿½ï¿½ï¿½ï¿½
+202011232135-Jyounï¿½ï¿½ï¿½ï¿½088ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 ===========================================================================*/
 
@@ -35,12 +35,12 @@ void Fc_Sensor_Get()//1ms
 		cnt %= 20;
 		if(cnt==0)
 		{
-			/*¶ÁÈ¡µç×ÓÂÞÅÌ´ÅÁ¦¼ÆÊý¾Ý*/
+			/*ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 			if(MagType == MAG_AK8975)
 				DrvAk8975Read();
 			else if(MagType == MAG_AK09915)
 				DrvAk09915Read();
-			/*¶ÁÈ¡ÆøÑ¹¼ÆÊý¾Ý*/
+			/*ï¿½ï¿½È¡ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 			baro_height = (s32)Drv_Spl0601_Read();
 
 		}
@@ -58,7 +58,7 @@ void IMU_Update_Task(u8 dT_ms)
 
 	
 ////////////////////////////////////////////////////////////////////////		
-			/*Èç¹û×¼±¸·ÉÐÐ£¬¸´Î»ÖØÁ¦¸´Î»±ê¼ÇºÍ´ÅÁ¦¼Æ¸´Î»±ê¼Ç*/
+			/*ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ÇºÍ´ï¿½ï¿½ï¿½ï¿½Æ¸ï¿½Î»ï¿½ï¿½ï¿½*/
 				if(flag.unlock_sta )
 				{
 					imu_state.G_reset = imu_state.M_reset = 0;
@@ -68,15 +68,15 @@ void IMU_Update_Task(u8 dT_ms)
 				{
 					if(st_imuData.data_sta==0)
 					{
-						imu_state.G_reset = 1;//×Ô¶¯¸´Î»
+						imu_state.G_reset = 1;//ï¿½Ô¶ï¿½ï¿½ï¿½Î»
 						//sensor.gyr_CALIBRATE = 2;
 					}	
 					
 					if(reset_imu_f==0 )//&& flag.motionless == 1)
 					{
-						imu_state.G_reset = 1;//×Ô¶¯¸´Î»	
-						st_imu_cali.gyr_cali_on = 2;//Ð£×¼ÍÓÂÝÒÇ£¬²»±£´æ
-						reset_imu_f = 1;     //ÒÑ¾­ÖÃÎ»¸´Î»±ê¼Ç
+						imu_state.G_reset = 1;//ï¿½Ô¶ï¿½ï¿½ï¿½Î»	
+						st_imu_cali.gyr_cali_on = 2;//Ð£×¼ï¿½ï¿½ï¿½ï¿½ï¿½Ç£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+						reset_imu_f = 1;     //ï¿½Ñ¾ï¿½ï¿½ï¿½Î»ï¿½ï¿½Î»ï¿½ï¿½ï¿½
 					}
 								
 				}
@@ -95,22 +95,22 @@ void IMU_Update_Task(u8 dT_ms)
 					}
 					else
 					{
-						/*ÉèÖÃÖØÁ¦»¥²¹ÈÚºÏÐÞÕýkpÏµÊý*/
+						/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úºï¿½ï¿½ï¿½ï¿½ï¿½kpÏµï¿½ï¿½*/
 						imu_state.gkp = 0.2f;//0.4f;
 					}
 					
-					/*ÉèÖÃÖØÁ¦»¥²¹ÈÚºÏÐÞÕýkiÏµÊý*/
+					/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úºï¿½ï¿½ï¿½ï¿½ï¿½kiÏµï¿½ï¿½*/
 					imu_state.gki = 0.01f;
 					
-					/*ÉèÖÃÂÞÅÌ»¥²¹ÈÚºÏÐÞÕýkiÏµÊý*/
+					/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì»ï¿½ï¿½ï¿½ï¿½Úºï¿½ï¿½ï¿½ï¿½ï¿½kiÏµï¿½ï¿½*/
 					imu_state.mkp = 0.1f;
 				}
 				
-				imu_state.M_fix_en = sens_hd_check.mag_ok;		//´ÅÁ¦¼ÆÐÞÕýÊ¹ÄÜ
+				imu_state.M_fix_en = 0;		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½
 	
 				if(st_imuData.data_sta==1 && st_imu_cali.gyr_cali_on == 0)
 				{
-					/*×ËÌ¬¼ÆËã£¬¸üÐÂ£¬ÈÚºÏ*/
+					/*ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½ã£¬ï¿½ï¿½ï¿½Â£ï¿½ï¿½Úºï¿½*/
 					IMU_update(dT_ms *1e-3f, &imu_state,sensor.Gyro_rad, sensor.Acc_cmss, mag.val,&imu_data);//x3_dT_1[2] * 0.000001f
 				}
 //////////////////////////////////////////////////////////////////////	
@@ -143,7 +143,7 @@ float baro_fix1,baro_fix2,baro_fix;
 static u8 wcz_f_pause;
 float wcz_acc_use;			
 
-void WCZ_Acc_Get_Task()//×îÐ¡ÖÜÆÚ
+void WCZ_Acc_Get_Task()//ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½
 {
 	wcz_acc_use += 0.02f *(imu_data.w_acc[Z] - wcz_acc_use);
 }
@@ -176,7 +176,7 @@ void WCZ_Fus_Task(u8 dT_ms)
 	
 	if(baro_offset_ok >= 1)//(flag.taking_off)
 	{
-		ref_height_get_1 = baro_height - baro_h_offset + baro_fix  + tof2baro_offset;//ÆøÑ¹¼ÆÏà¶Ô¸ß¶È£¬ÇÐ»»µã¸úËæTOF
+		ref_height_get_1 = baro_height - baro_h_offset + baro_fix  + tof2baro_offset;//ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½Ô¸ß¶È£ï¿½ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½TOF
 		//baro_offset_ok = 0;
 	}
 	else
@@ -218,11 +218,11 @@ void WCZ_Fus_Task(u8 dT_ms)
 	jump_f = (ABS(jsdata.valid_of_alt_cm - of_tof_old_cm)>25) ? 1 : 0;
 	of_tof_old_cm = jsdata.valid_of_alt_cm;
 	//
-	if((sens_hd_check.of_df_ok || sens_hd_check.of_ok) && baro_offset_ok) //TOF»òÕßOFÓ²¼þÕý³££¬ÇÒÆøÑ¹¼Æ¼ÇÂ¼Ïà¶ÔÖµÒÔºó
+	if((sens_hd_check.of_df_ok || sens_hd_check.of_ok) && baro_offset_ok) //TOFï¿½ï¿½ï¿½ï¿½OFÓ²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½Æ¼ï¿½Â¼ï¿½ï¿½ï¿½Öµï¿½Ôºï¿½
 	{
-		if( ( switchs.tof_on || switchs.of_tof_on )&&( jump_f == 0 ) ) //TOFÊý¾ÝÓÐÐ§
+		if( ( switchs.tof_on || switchs.of_tof_on )&&( jump_f == 0 ) ) //TOFï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§
 		{
-			if(switchs.of_tof_on) //¹âÁ÷´øTOF£¬¹âÁ÷ÓÅÏÈ
+			if(switchs.of_tof_on) //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½TOFï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			{
 				ref_tof_height = jsdata.valid_of_alt_cm ;
 			}
@@ -235,14 +235,14 @@ void WCZ_Fus_Task(u8 dT_ms)
 			//
 			if(tof_offset_ok == 0)
 			{
-				baro2tof_offset = ref_height_get_1 - ref_tof_height ; //¼ÇÂ¼TOFÇÐ»»µã		
+				baro2tof_offset = ref_height_get_1 - ref_tof_height ; //ï¿½ï¿½Â¼TOFï¿½Ð»ï¿½ï¿½ï¿½		
 				tof_offset_ok = 1;
 			}
 			//
-			ref_height_get_2 = ref_tof_height + baro2tof_offset;//TOF²Î¿¼¸ß¶È£¬ÇÐ»»µã¸úËæÆøÑ¹¼Æ				
+			ref_height_get_2 = ref_tof_height + baro2tof_offset;//TOFï¿½Î¿ï¿½ï¿½ß¶È£ï¿½ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½				
 			ref_height_used = ref_height_get_2;
 			
-			tof2baro_offset += 0.5f *((ref_height_get_2 - ref_height_get_1) - tof2baro_offset);//¼ÇÂ¼ÆøÑ¹¼ÆÇÐ»»µã£¬ÆøÑ¹¼Æ²¨¶¯´ó£¬ÉÔÎ¢ÂË²¨Ò»ÏÂ
+			tof2baro_offset += 0.5f *((ref_height_get_2 - ref_height_get_1) - tof2baro_offset);//ï¿½ï¿½Â¼ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ã£¬ï¿½ï¿½Ñ¹ï¿½Æ²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¢ï¿½Ë²ï¿½Ò»ï¿½ï¿½
 			//tof2baro_offset = ref_height_get_2 - ref_height_get_1;				
 			
 
@@ -260,7 +260,7 @@ void WCZ_Fus_Task(u8 dT_ms)
 		ref_height_used = ref_height_get_1;
 	}
 	
-	//ÊÀ½çz·½Ïò¸ß¶ÈÐÅÏ¢ÈÚºÏ
+	//ï¿½ï¿½ï¿½ï¿½zï¿½ï¿½ï¿½ï¿½ß¶ï¿½ï¿½ï¿½Ï¢ï¿½Úºï¿½
 	WCZ_Data_Calc(dT_ms,wcz_f_pause,(s32)wcz_acc_use,(s32)(ref_height_used));
 
 }

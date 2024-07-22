@@ -35,7 +35,7 @@
 .\build\drv_spl06.o: .\SRC\applications\Ano_USB.h
 .\build\drv_spl06.o: .\SRC\drivers\Drv_time.h
 .\build\drv_spl06.o: .\SRC\drivers\Drv_usart.h
-.\build\drv_spl06.o: .\SRC\drivers\Drv_Gps.h
 .\build\drv_spl06.o: .\SRC\applications\include.h
+.\build\drv_spl06.o: .\SRC\drivers\Drv_Gps.h
 .\build\drv_spl06.o: .\SRC\drivers\Drv_BSP.h
 .\build\drv_spl06.o: SRC\drivers\Drv_spi.h

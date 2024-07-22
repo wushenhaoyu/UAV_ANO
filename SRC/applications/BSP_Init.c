@@ -97,7 +97,7 @@ u8 All_Init()
 //	Usart3_Init(500000);			//连接UWB
 //	Delay_ms(10);					//延时
 	//
-	Usart3_Init(500000);			//连接OPENMV
+	Usart3_Init(115200);			//连接OPENMV
 	//	
 //	Uart4_Init(19200);	//接优像光流
 //  Uart5_Init(115200);//接大功率激光	

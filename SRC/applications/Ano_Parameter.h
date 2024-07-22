@@ -182,27 +182,32 @@ typedef struct
 //__packed struct _Parameter_s
 {
 	//
-	float IEM[3][3];                      //°²×°Îó²î¾ØÕó	
+	float IEM[3][3];                      //ï¿½ï¿½×°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	
 	//acc
-	float acc_zero_offset[3];             //¼ÓËÙ¶È¼ÆÁãÆ«
+	float acc_zero_offset[3];             //ï¿½ï¿½ï¿½Ù¶È¼ï¿½ï¿½ï¿½Æ«
 	float acc_sensitivity_ref[3];//1G
 	//gyro
-	float gyr_zero_offset[3];             //ÍÓÂÝÒÇÁãÆ«
+	float gyr_zero_offset[3];             //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ«
 	//
-	float body_central_pos_cm[VEC_XYZ];   //ÖØÐÄÏà¶Ô´«¸ÐÆ÷Î»ÖÃÆ«ÒÆÁ¿
+	float body_central_pos_cm[VEC_XYZ];   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½Æ«ï¿½ï¿½ï¿½ï¿½
 	//mag
-	float mag_offset[VEC_XYZ];            //´ÅÁ¦¼ÆÁãÆ«
-	float mag_gain[VEC_XYZ];              //´ÅÁ¦¼ÆÐ£Õý±ÈÀý	  	
+	float mag_offset[VEC_XYZ];            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ«
+	float mag_gain[VEC_XYZ];              //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	  	
 	//
-	float 	pid_att_1level[VEC_RPY][PID]; //×ËÌ¬¿ØÖÆ½ÇËÙ¶È»·PID²ÎÊý
-	float 	pid_att_2level[VEC_RPY][PID]; //×ËÌ¬¿ØÖÆ½Ç¶È»·PID²ÎÊý
-	float 	pid_alt_1level[PID];          //¸ß¶È¿ØÖÆ¸ß¶ÈËÙ¶È»·PID²ÎÊý
-	float 	pid_alt_2level[PID];           //¸ß¶È¿ØÖÆ¸ß¶È»·PID²ÎÊý
-	float 	pid_loc_1level[PID];          //Î»ÖÃ¿ØÖÆÎ»ÖÃËÙ¶È»·PID²ÎÊý
-	float 	pid_loc_2level[PID];           //Î»ÖÃ¿ØÖÆÎ»ÖÃ»·PID²ÎÊý
+	float 	pid_att_1level[VEC_RPY][PID]; //ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½Æ½ï¿½ï¿½Ù¶È»ï¿½PIDï¿½ï¿½ï¿½ï¿½
+	float 	pid_att_2level[VEC_RPY][PID]; //ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½Æ½Ç¶È»ï¿½PIDï¿½ï¿½ï¿½ï¿½
+	float 	pid_alt_1level[PID];          //ï¿½ß¶È¿ï¿½ï¿½Æ¸ß¶ï¿½ï¿½Ù¶È»ï¿½PIDï¿½ï¿½ï¿½ï¿½
+	float 	pid_alt_2level[PID];           //ï¿½ß¶È¿ï¿½ï¿½Æ¸ß¶È»ï¿½PIDï¿½ï¿½ï¿½ï¿½
+	float 	pid_loc_1level[PID];          //Î»ï¿½Ã¿ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½Ù¶È»ï¿½PIDï¿½ï¿½ï¿½ï¿½
+	float 	pid_loc_2level[PID];           //Î»ï¿½Ã¿ï¿½ï¿½ï¿½Î»ï¿½Ã»ï¿½PIDï¿½ï¿½ï¿½ï¿½
 
-	float 	pid_gps_loc_1level[PID];          //Î»ÖÃ¿ØÖÆÎ»ÖÃËÙ¶È»·PID²ÎÊý
-	float 	pid_gps_loc_2level[PID];           //Î»ÖÃ¿ØÖÆÎ»ÖÃ»·PID²ÎÊý
+	float 	pid_gps_loc_1level[PID];          //Î»ï¿½Ã¿ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½Ù¶È»ï¿½PIDï¿½ï¿½ï¿½ï¿½
+	float 	pid_gps_loc_2level[PID];           //Î»ï¿½Ã¿ï¿½ï¿½ï¿½Î»ï¿½Ã»ï¿½PIDï¿½ï¿½ï¿½ï¿½
+
+	float   pid_user_height[PID];  //é«˜åº¦çŽ¯
+	float   pid_user_X[PID];
+	float   pid_user_Y[PID];
+	float   pid_user_Yaw[PID];
 
 	float   warn_power_voltage;
 	s32	    bat_cell;
@@ -214,7 +219,7 @@ typedef struct
 	float idle_speed_pwm;
 	
 	//	
-	u8		pwmInMode;				//½ÓÊÕ»úÄ£Ê½£¬·Ö±ðÎªPWMÐÍPPMÐÍ
+	u8		pwmInMode;				//ï¿½ï¿½ï¿½Õ»ï¿½Ä£Ê½ï¿½ï¿½ï¿½Ö±ï¿½ÎªPWMï¿½ï¿½PPMï¿½ï¿½
 	u8		heatSwitch;				//
 	//ins
 	u8 acc_calibrated;
@@ -222,12 +227,12 @@ typedef struct
 	u8 reserve1;
 	u8 reserve2;
 	//
-	u16 frist_init;	//·É¿ØµÚÒ»´Î³õÊ¼»¯£¬ÐèÒª×öÒ»Ð©ÌØÊâ¹¤×÷£¬±ÈÈçÇå¿Õflash	
+	u16 frist_init;	//ï¿½É¿Øµï¿½Ò»ï¿½Î³ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½Ò»Ð©ï¿½ï¿½ï¿½â¹¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½flash	
 }_Parameter_s;//__attribute__ ((__packed__)) 
 
 union Parameter
 {
-	//ÕâÀïÊ¹ÓÃÁªºÏÌå£¬³¤¶ÈÊÇ4KByte£¬ÁªºÏÌåÄÚ²¿ÊÇÒ»¸ö½á¹¹Ìå£¬¸Ã½á¹¹ÌåÄÚÊÇÐèÒª±£´æµÄ²ÎÊý
+	//ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½å£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4KByteï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½á¹¹ï¿½å£¬ï¿½Ã½á¹¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½
 	_Parameter_s set;
 	u8 byte[4096];
 };

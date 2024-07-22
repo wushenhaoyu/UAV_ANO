@@ -1,26 +1,5 @@
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\code\stm32\keil5\Core\ARM\ARMCC\Bin'
 Build target 'Ano_Pioneer'
-compiling User_IMU_DataSend.c...
-SRC\User\User_IMU_DataSend.h(16): warning:  #1-D: last line of file ends without a newline
-  #endif
-SRC\User\User_IMU_DataSend.c(28): warning:  #170-D: pointer points outside of underlying object
-      memcpy(data_to_send + 6 * sizeof(float), ROS_IMU_Data.ORI, 3 * sizeof(float));
-SRC\User\User_IMU_DataSend.c(38): warning:  #1-D: last line of file ends without a newline
-  }
-SRC\User\User_IMU_DataSend.c(38): warning: C4488E: write to variable 'data_to_send' with offset out of bounds
-}^
-SRC\User\User_IMU_DataSend.c(38): warning: C4488E: write to variable 'data_to_send' with offset out of bounds
-}^
-SRC\User\User_IMU_DataSend.c(38): warning: C4488E: write to variable 'data_to_send' with offset out of bounds
-}^
-SRC\User\User_IMU_DataSend.c(38): warning: C4488E: write to variable 'data_to_send' with offset out of bounds
-}^
-SRC\User\User_IMU_DataSend.c(38): warning: C4488E: write to variable 'data_to_send' with offset out of bounds
-}^
-SRC\User\User_IMU_DataSend.c: 8 warnings, 0 errors
-linking...
-Program Size: Code=106456 RO-data=2316 RW-data=1248 ZI-data=13832  
-FromELF: creating hex file...
-After Build - User command #1: fromelf.exe --bin -o ./AnoPioneerPro.bin ./build/Ano_Pioneer.axf
-".\build\ANO_Pioneer.axf" - 0 Error(s), 8 Warning(s).
+Note: source file '.\SRC\User\User_IMU_DataSend.c' - object file renamed from '.\build\User_IMU_DataSend.o' to '.\build\user_imu_datasend_1.o'.Note: source file '.\SRC\User\User_PID_Height.c' - object file renamed from '.\build\User_PID_Height.o' to '.\build\user_pid_height_1.o'.Note: source file '.\SRC\User\User_ROS_ControlFly.c' - object file renamed from '.\build\User_ROS_ControlFly.o' to '.\build\user_ros_controlfly_1.o'.Note: source file '.\SRC\User\User_ROS_DataRecieve.c' - object file renamed from '.\build\User_ROS_DataRecieve.o' to '.\build\user_ros_datarecieve_1.o'.Note: source file '.\SRC\User\User_Task_Schduler.c' - object file renamed from '.\build\User_Task_Schduler.o' to '.\build\user_task_schduler_1.o'.After Build - User command #1: fromelf.exe --bin -o ./AnoPioneerPro.bin ./build/Ano_Pioneer.axf
+".\build\ANO_Pioneer.axf" - 0 Error(s), 0 Warning(s).
 Build Time Elapsed:  00:00:01

@@ -37,8 +37,8 @@
 .\build\ano_motioncal.o: .\SRC\applications\Ano_USB.h
 .\build\ano_motioncal.o: .\SRC\drivers\Drv_time.h
 .\build\ano_motioncal.o: .\SRC\drivers\Drv_usart.h
-.\build\ano_motioncal.o: .\SRC\drivers\Drv_Gps.h
 .\build\ano_motioncal.o: .\SRC\applications\include.h
+.\build\ano_motioncal.o: .\SRC\drivers\Drv_Gps.h
 .\build\ano_motioncal.o: .\SRC\drivers\Drv_BSP.h
 .\build\ano_motioncal.o: SRC\fc_general\Ano_Imu.h
 .\build\ano_motioncal.o: .\SRC\fc_specific\Ano_MotorCtrl.h

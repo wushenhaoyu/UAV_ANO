@@ -27,4 +27,14 @@
 .\build\drv_up_flow.o: .\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_wwdg.h
 .\build\drv_up_flow.o: .\Libraries\STM32F4xx_StdPeriph_Driver\inc\misc.h
 .\build\drv_up_flow.o: SRC\drivers\Drv_Usart.h
-.\build\drv_up_flow.o: SRC\drivers\Drv_time.h
+.\build\drv_up_flow.o: .\SRC\applications\include.h
+.\build\drv_up_flow.o: .\SRC\applications\Ano_Scheduler.h
+.\build\drv_up_flow.o: .\SRC\applications\BSP_Init.h
+.\build\drv_up_flow.o: .\SRC\applications\Ano_DT.h
+.\build\drv_up_flow.o: .\SRC\applications\Ano_Parameter.h
+.\build\drv_up_flow.o: .\SRC\applications\Ano_USB.h
+.\build\drv_up_flow.o: .\SRC\drivers\Drv_time.h
+.\build\drv_up_flow.o: .\SRC\drivers\Drv_usart.h
+.\build\drv_up_flow.o: .\SRC\drivers\Drv_Gps.h
+.\build\drv_up_flow.o: .\SRC\applications\include.h
+.\build\drv_up_flow.o: .\SRC\drivers\Drv_BSP.h

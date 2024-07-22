@@ -38,7 +38,11 @@
 #include "Ano_Imu_Task.h"
 #include "Drv_BSP.h"
 #include "User_IMU_DataSend.h"
-
+#include "User_RC.h"
+#include "User_PID_Height.h"
+#include "User_PID_YAW.h"
+#include "User_PID_XY.h"
+#include "User_OPENMV_Cal.h"
 u32 test_dT_1000hz[3],test_rT[6];
 
 static void Loop_1000Hz(void)	//1ms执行一次
@@ -123,6 +127,7 @@ static void Loop_100Hz(void)	//10ms执行一次
 	
 	/*高度环控制*/
 	Alt_2level_Ctrl(10e-3f);
+
 	
 	/*匿名光流状态检测*/	
 	AnoOF_Check_State(0.01f);//AnoOF_DataAnl_Task(10);
@@ -134,6 +139,18 @@ static void Loop_100Hz(void)	//10ms执行一次
 			test_rT[2] = (u32)(test_rT[1] - test_rT[0]) ;	
 			
 	User_IMU_DataSend();
+	
+	RC_task(10);	
+
+	/*高度环控制*/
+	User_PID_Height_Ctrl(10e-3f);
+
+	/*航向角控制*/
+	User_PID_yaw_Ctrl(10e-3f);
+
+	//openmv精准定位控制
+	User_OPENMV_Localization(10e-3f);
+	
 				
 }
 
