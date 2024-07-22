@@ -14,7 +14,6 @@ void RC_task(u8 ms)
 				{
 						one_key_take_off();
 				}
-				else
     }
     else{
         if(RC_task_time_2 > 0)
