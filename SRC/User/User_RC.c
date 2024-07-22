@@ -14,6 +14,7 @@ void RC_task(u8 ms)
 				{
 						one_key_take_off();
 				}
+				else
     }
     else{
         if(RC_task_time_2 > 0)
@@ -28,30 +29,7 @@ void RC_task(u8 ms)
     if(rc_in.rc_ch.st_data.ch_[ch_7_aux3] > 1950)
     {
         RC_task_time_3 += ms;
-        control_state_openmv_localization = 1;
-        /*
-        RC_task_time_3 += ms;
-        if(RC_task_time_3 == 3000)
-		{
-				one_key_take_off();
-		}
-        else if(RC_task_time_3 == 10000)
-        {
-            Set_Target_yaw(imu_data.yaw + 90);
-        }
-        else if(RC_task_time_3 == 17000)
-        {
-            Set_Target_yaw(imu_data.yaw  - 180);
-        }
-        else if(RC_task_time_3 == 25000)
-        {
-            Set_Target_yaw(imu_data.yaw );
-        }
-        else if (RC_task_time_3  == 26000)
-        {
-            one_key_land();
-        }
-        */
+				 User_FlyState_Manager(OPENMV_DXDY_CTRL,CTRL_ON);
         
     }
     else
@@ -60,7 +38,7 @@ void RC_task(u8 ms)
 				{
                     //AnoDTSendStr(USE_HID|USE_U2,SWJ_ADDR,LOG_COLOR_GREEN,"0");
 					RC_task_time_3 = 0;
-					control_state_openmv_localization = 0;
+					User_FlyState_Manager(OPENMV_DXDY_CTRL,CTRL_OFF);
 				}
     }
 		

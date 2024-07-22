@@ -25,6 +25,7 @@
 ".\build\user_pid_yaw.o"
 ".\build\user_openmv_datarecieve.o"
 ".\build\user_openmv_cal.o"
+".\build\user_wayponit_control.o"
 ".\build\ano_fcdata.o"
 ".\build\ano_filter.o"
 ".\build\ano_imu.o"

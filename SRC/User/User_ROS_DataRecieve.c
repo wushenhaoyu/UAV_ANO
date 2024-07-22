@@ -57,18 +57,16 @@ void Deal_With_ROS_Data(u8 func,u8 len,u8 *data)
 
     switch(func)
     {
-        //0x01 树莓派发送雷达坐标 2字节 x 、 y 单位 米
+        //0x01 树莓派发送雷达坐标 9字节 x坐标 单位 米 、 y坐标 单位 米、是否有效位 
         case 0x01:
-            
-               /* {
-                    float hx_vel_cmps, hy_vel_cmps, yaw_vel_cmps;
-                    memcpy(&hx_vel_cmps, data, sizeof(float));
-                    memcpy(&hy_vel_cmps, data + sizeof(float), sizeof(float));
-                    memcpy(&yaw_vel_cmps, data + 2 * sizeof(float), sizeof(float));
-                    
-                    // 调用set_vel函数
-                    Set_Vel(hx_vel_cmps, hy_vel_cmps, yaw_vel_cmps);
-                }*/
+            float x, y;
+            uint8_t is_valid;
+
+            // 解包数据
+            memcpy(&x, data, sizeof(float));
+            memcpy(&y, data + sizeof(float), sizeof(float));
+            is_valid = data[2 * sizeof(float)];
+            Update_Current_Location(x * 100 , y * 100);//转化位cm更新位置
             break;
         //0x02  设置任务状态 1位 
         case 0X02:

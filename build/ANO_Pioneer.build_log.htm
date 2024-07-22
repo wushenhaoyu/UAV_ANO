@@ -22,7 +22,7 @@ Dialog DLL:      TCM.DLL V1.56.4.0
  
 <h2>Project:</h2>
 D:\data\ÄäÃû·É¿Ø\ÄäÃûÍØ¿ÕÕßP2×ÊÁÏ°ü-20221006\8£º·É¿ØÔ´Âë¹¤³Ì\ANO_PioneerPro-088\ANO_Pioneer.uvprojx
-Project File Date:  07/20/2024
+Project File Date:  07/22/2024
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\code\stm32\keil5\Core\ARM\ARMCC\Bin'
@@ -32,19 +32,31 @@ Note: source file '.\SRC\User\User_PID_Height.c' - object file renamed from '.\b
 Note: source file '.\SRC\User\User_ROS_ControlFly.c' - object file renamed from '.\build\User_ROS_ControlFly.o' to '.\build\user_ros_controlfly_1.o'.
 Note: source file '.\SRC\User\User_ROS_DataRecieve.c' - object file renamed from '.\build\User_ROS_DataRecieve.o' to '.\build\user_ros_datarecieve_1.o'.
 Note: source file '.\SRC\User\User_Task_Schduler.c' - object file renamed from '.\build\User_Task_Schduler.o' to '.\build\user_task_schduler_1.o'.
-compiling User_OPENMV_DataRecieve.c...
+compiling User_RC.c...
+SRC\User\User_PID_YAW.h(11): warning:  #1295-D: Deprecated declaration User_PID_yaw_Init - give arg types
+  void User_PID_yaw_Init();//è¯·æ”¾åœ¨All_PID_Inité‡Œé¢
 SRC\User\User_PID_XY.h(8): warning:  #1295-D: Deprecated declaration User_PID_XY_Init - give arg types
   void User_PID_XY_Init();
+SRC\User\User_WayPoint_Control.h(13): warning:  #1295-D: Deprecated declaration Cal_WayPoint_Error - give arg types
+  void Cal_WayPoint_Error();//è®¡ç®—xyè¯¯å·®ï¼Œé€å…¥pid
+SRC\User\User_WayPoint_Control.h(17): warning:  #1-D: last line of file ends without a newline
+  #endif
 SRC\User\User_OPENMV_Cal.h(14): warning:  #1295-D: Deprecated declaration User_OPENMV_DXDY_Cal - give arg types
   void User_OPENMV_DXDY_Cal();
-SRC\User\User_OPENMV_DataRecieve.c(112): warning:  #1-D: last line of file ends without a newline
-  }
-SRC\User\User_OPENMV_DataRecieve.c: 3 warnings, 0 errors
+SRC\User\User_WayPoint_Control.h(13): warning:  #1295-D: Deprecated declaration Cal_WayPoint_Error - give arg types
+  void Cal_WayPoint_Error();//è®¡ç®—xyè¯¯å·®ï¼Œé€å…¥pid
+SRC\User\User_WayPoint_Control.h(17): warning:  #1-D: last line of file ends without a newline
+  #endif
+SRC\User\User_WayPoint_Control.h(13): warning:  #1295-D: Deprecated declaration Cal_WayPoint_Error - give arg types
+  void Cal_WayPoint_Error();//è®¡ç®—xyè¯¯å·®ï¼Œé€å…¥pid
+SRC\User\User_WayPoint_Control.h(17): warning:  #1-D: last line of file ends without a newline
+  #endif
+SRC\User\User_RC.c: 9 warnings, 0 errors
 linking...
-Program Size: Code=111072 RO-data=2316 RW-data=1364 ZI-data=15276  
+Program Size: Code=110752 RO-data=2316 RW-data=1380 ZI-data=15276  
 FromELF: creating hex file...
 After Build - User command #1: fromelf.exe --bin -o ./AnoPioneerPro.bin ./build/Ano_Pioneer.axf
-".\build\ANO_Pioneer.axf" - 0 Error(s), 3 Warning(s).
+".\build\ANO_Pioneer.axf" - 0 Error(s), 9 Warning(s).
 
 <h2>Software Packages used:</h2>
 

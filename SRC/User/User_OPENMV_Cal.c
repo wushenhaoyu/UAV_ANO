@@ -9,7 +9,7 @@ u8 control_state_openmv_localization = 0;
 
 void User_OPENMV_Localization(float dT_s)
 {
-    if(control_state_openmv_localization == 1 && flag.auto_take_off_land == AUTO_TAKE_OFF_FINISH)
+    if(control_state_openmv_localization && flag.auto_take_off_land == AUTO_TAKE_OFF_FINISH)
     {
         User_PID_XY_Ctrl(dT_s);
     }

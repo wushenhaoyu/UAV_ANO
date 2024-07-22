@@ -19,6 +19,9 @@
         "user_ros_controlfly.h": "c",
         "stm32f4xx.h": "c",
         "user_openmv_cal.h": "c",
-        "ano_parameter.h": "c"
+        "ano_parameter.h": "c",
+        "user_waypoint_control.h": "c",
+        "user_rc.h": "c",
+        "ano_programctrl_user.h": "c"
     }
 }
