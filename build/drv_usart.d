@@ -63,4 +63,6 @@
 .\build\drv_usart.o: D:\code\stm32\keil5\Core\ARM\ARMCC\Bin\..\include\string.h
 .\build\drv_usart.o: .\SRC\User\User_PID_Height.h
 .\build\drv_usart.o: .\SRC\User\User_WayPoint_Control.h
+.\build\drv_usart.o: .\SRC\User\User_IMU_DataSend.h
+.\build\drv_usart.o: .\SRC\AnoImu\Ano_Imu_Data.h
 .\build\drv_usart.o: .\SRC\applications\Ano_UWB.h

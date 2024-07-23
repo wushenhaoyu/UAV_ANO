@@ -64,9 +64,16 @@ void User_OPENMV_DataRecieve(u8 data) //length = 8
     case 0x02://精准定位返回xy坐标偏差
 				Deal_With_XY_Data(data);
         break;
+		case 0x03:
+				Loss_XY_Data();
+				break;
     }
  }
 
+ void Loss_XY_Data()//目标丢失视野
+ {
+	 Set_OPENMV_DXDY(0, 0);
+ }
 
  void Identify_Color_Shape(u8 *data)
  {

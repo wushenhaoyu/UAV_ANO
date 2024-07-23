@@ -53,6 +53,8 @@
 .\build\user_task_schduler_1.o: SRC\User\User_WayPoint_Control.h
 .\build\user_task_schduler_1.o: SRC\User\User_PID_XY.h
 .\build\user_task_schduler_1.o: .\SRC\fc_general\Ano_Imu.h
+.\build\user_task_schduler_1.o: SRC\User\User_IMU_DataSend.h
+.\build\user_task_schduler_1.o: .\SRC\AnoImu\Ano_Imu_Data.h
 .\build\user_task_schduler_1.o: SRC\User\User_OPENMV_DataRecieve.h
 .\build\user_task_schduler_1.o: SRC\User\User_OPENMV_Cal.h
 .\build\user_task_schduler_1.o: SRC\User\User_WayPoint_Control.h

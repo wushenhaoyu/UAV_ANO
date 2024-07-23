@@ -28,20 +28,24 @@ void User_FlyState_Manager(u8 state,u8 action)//管理飞行状态
     case WAYPOINT_CTRL://航点规划两者共用XY轴PID无法同时使用
         if(action == CTRL_ON)
         {
+						EN_XY = 1;
             control_state_waypoint = 1;
             control_state_openmv_localization = 0;
         }
         else if (action == CTRL_OFF)
+						EN_XY = 0;
             control_state_waypoint = 0;
         break;
     
     case OPENMV_DXDY_CTRL://openmv精确定位
         if(action == CTRL_ON)
             {
+								EN_XY = 1;
                 control_state_openmv_localization = 1;
                 control_state_waypoint = 0;
             }
         else if (action == CTRL_OFF)
+						EN_XY = 0;
             control_state_openmv_localization = 0;
         break;
     }

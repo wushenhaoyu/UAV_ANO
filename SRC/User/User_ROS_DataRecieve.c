@@ -1,4 +1,8 @@
 #include "User_ROS_DataRecieve.h"
+#include "include.h"
+#include <stdint.h>
+#include <string.h>
+#include <stdio.h>
 /* ROS数据处理 */
 u8 data_reg[56]           ; //RX缓冲区
 u8 state        =   IDLE  ; //状态机标志位
@@ -59,14 +63,13 @@ void Deal_With_ROS_Data(u8 func,u8 len,u8 *data)
     {
         //0x01 树莓派发送雷达坐标 9字节 x坐标 单位 米 、 y坐标 单位 米、是否有效位 
         case 0x01:
-            float x, y;
-            uint8_t is_valid;
+						User_DataSend(0x02,0x08,data);
+            float x_, y_;
 
             // 解包数据
-            memcpy(&x, data, sizeof(float));
-            memcpy(&y, data + sizeof(float), sizeof(float));
-            is_valid = data[2 * sizeof(float)];
-            Update_Current_Location(x * 100 , y * 100);//转化位cm更新位置
+            memcpy(&x_, data, sizeof(float));
+            memcpy(&y_, data + sizeof(float), sizeof(float));
+						Update_Current_Location(x_,y_);
             break;
         //0x02  设置任务状态 1位 
         case 0X02:

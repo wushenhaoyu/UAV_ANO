@@ -40,3 +40,4 @@
 .\build\user_pid_xy.o: .\SRC\fc_general\Ano_Pid.h
 .\build\user_pid_xy.o: .\SRC\applications\Ano_ProgramCtrl_User.h
 .\build\user_pid_xy.o: .\SRC\fc_general\Ano_Math.h
+.\build\user_pid_xy.o: D:\code\stm32\keil5\Core\ARM\ARMCC\Bin\..\include\stdio.h

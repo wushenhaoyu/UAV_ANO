@@ -60,3 +60,6 @@
 .\build\user_ros_datarecieve_1.o: SRC\User\User_PID_Height.h
 .\build\user_ros_datarecieve_1.o: .\SRC\applications\Ano_OF.h
 .\build\user_ros_datarecieve_1.o: SRC\User\User_WayPoint_Control.h
+.\build\user_ros_datarecieve_1.o: SRC\User\User_IMU_DataSend.h
+.\build\user_ros_datarecieve_1.o: .\SRC\AnoImu\Ano_Imu_Data.h
+.\build\user_ros_datarecieve_1.o: D:\code\stm32\keil5\Core\ARM\ARMCC\Bin\..\include\stdio.h

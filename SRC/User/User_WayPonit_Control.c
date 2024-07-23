@@ -11,6 +11,10 @@ void Update_Current_Location(float x,float y)//更新当前位置
 {
     x_current = x;
     y_current = y;
+		if(control_state_waypoint)
+		{
+				Cal_WayPoint_Error();
+		}
 }
 void Set_Target_WayPoint(float x,float y)//设定航点
 {
@@ -36,5 +40,5 @@ void User_WayPoint_Control(float dT_s)//航点PID控制
         Cal_WayPoint_Error();
         User_PID_XY_Ctrl(dT_s);
     }
-}
+}//作废
 

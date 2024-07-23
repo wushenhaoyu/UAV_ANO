@@ -6,6 +6,7 @@ _PID_val_st X_val;
 _PID_val_st Y_val;
 u8 EN_XY = 0;
 float X_err , Y_err;
+#include <stdio.h>
 
 void User_PID_XY_Init()
 {
@@ -30,7 +31,7 @@ void  User_PID_XY_Ctrl(float dT_s)
         PID_calculate(
             dT_s,
             0,
-            X_err,
+            X_err ,
             0,
             &X_arg,
             &X_val,
@@ -40,16 +41,22 @@ void  User_PID_XY_Ctrl(float dT_s)
         PID_calculate(
             dT_s,
             0,
-            Y_err,
+            Y_err ,
             0,
             &Y_arg,
             &Y_val,
             50,
             10
         );
-        X_out = X_val.out;
-        Y_out = Y_val.out;
-        Program_Ctrl_User_Set_HXYcmps(LIMIT(X_out,-10,10),LIMIT(Y_out,-10,10));
+        X_out = X_val.out ;
+        Y_out = Y_val.out ;
+        Program_Ctrl_User_Set_HXYcmps(LIMIT(X_out,-15,15),LIMIT(Y_out,-15,15));
+				/*sprintf(x_str, "%f", X_out);
+
+				sprintf(y_str, "%f", Y_out);
+				AnoDTSendStr(USE_HID|USE_U2,SWJ_ADDR,LOG_COLOR_GREEN,x_str);
+				AnoDTSendStr(USE_HID|USE_U2,SWJ_ADDR,LOG_COLOR_GREEN,y_str);*/
+
 
     }
 }

@@ -149,9 +149,11 @@ static void Loop_100Hz(void)	//10ms执行一次
 	User_PID_yaw_Ctrl(10e-3f);
 
 	//openmv精准定位控制
-	User_OPENMV_Localization(10e-3f);
+	//User_OPENMV_Localization(10e-3f);
 	
-				
+	//User_WayPoint_Control(10e-3f);
+	
+	User_PID_XY_Ctrl(10e-3f);
 }
 
 static void Loop_50Hz(void)	//20ms执行一次
@@ -160,7 +162,7 @@ static void Loop_50Hz(void)	//20ms执行一次
 	//
 	ImuServices_20ms_c();
 	/*罗盘数据处理任务*/
-	Mag_Update_Task(20);
+	//Mag_Update_Task(20);
 	/*程序指令控制*/
 	FlyCtrl_Task(20);
 	//
@@ -170,13 +172,13 @@ static void Loop_50Hz(void)	//20ms执行一次
 	/*位置速度环控制*/
 	Loc_1level_Ctrl(20,CH_N);
 	/*OPMV检测是否掉线*/
-	OpenMV_Offline_Check(20);
+	//OpenMV_Offline_Check(20);
 	/*OPMV色块追踪数据处理任务*/
-	ANO_CBTracking_Task(20);
+	//ANO_CBTracking_Task(20);
 	/*OPMV寻线数据处理任务*/
-	ANO_LTracking_Task(20);
+	//ANO_LTracking_Task(20);
 	/*OPMV控制任务*/
-	ANO_OPMV_Ctrl_Task(20);
+	//ANO_OPMV_Ctrl_Task(20);
 }
 
 static void Loop_20Hz(void)	//50ms执行一次

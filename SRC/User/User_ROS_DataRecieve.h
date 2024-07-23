@@ -7,6 +7,7 @@
 #include "User_PID_Height.h"
 #include "include.h"
 #include "User_WayPoint_Control.h"
+#include "User_IMU_DataSend.h"
 void Deal_With_ROS_Data(u8 func,u8 len,u8 *data);
 void User_ROS_DataRecieve(u8 data);
 #define IDLE    0

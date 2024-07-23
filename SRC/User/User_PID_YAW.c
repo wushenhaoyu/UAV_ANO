@@ -8,7 +8,7 @@ float yaw_target;
 float yaw_exp_;
 float yaw_feedback;
 float yaw_error;
-u8    control_state_yaw = 0;
+u8    control_state_yaw = 1;
 void User_PID_yaw_Init()//请放在All_PID_Init里面
 {
     yaw_arg.kp = Ano_Parame.set.pid_user_Yaw[KP];

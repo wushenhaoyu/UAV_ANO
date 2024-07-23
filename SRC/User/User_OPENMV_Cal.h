@@ -8,7 +8,7 @@
 #include "Ano_Parameter.h"
 #include "Ano_Imu.h"
 extern int32_t pixel_dx_;
-extern int32_t pixle_dy_;
+extern int32_t pixel_dy_;
 extern u8 control_state_openmv_localization;
 void User_OPENMV_Localization(float dT_s);
 void User_OPENMV_DXDY_Cal();
