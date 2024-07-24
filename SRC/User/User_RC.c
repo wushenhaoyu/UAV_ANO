@@ -77,8 +77,7 @@ void RC_task(u8 ms)
 							control_state_openmv_localization = 1;
 							//User_FlyState_Manager(OPENMV_DXDY_CTRL,CTRL_ON);
 						//User_FlyState_Manager(WAYPOINT_CTRL,CTRL_ON);
-					}
-					/*else if(RC_task_time_3 == 2000)
+ 					/*else if(RC_task_time_3 == 2000)
 					{
 							Set_Target_WayPoint(100,100);
 					}*/
@@ -89,6 +88,7 @@ void RC_task(u8 ms)
                 if(RC_task_time_3 > 0)
 				{
                     //AnoDTSendStr(USE_HID|USE_U2,SWJ_ADDR,LOG_COLOR_GREEN,"0");
+					Program_Ctrl_User_Set_HXYcmps(0,0);
 							RC_task_time_3 = 0;
 							EN_XY = 0;
 							control_state_openmv_localization = 0;

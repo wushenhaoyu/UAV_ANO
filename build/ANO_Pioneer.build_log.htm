@@ -3,68 +3,81 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: ¶ÃVision V5.38.0.0
-Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: wushen 1192511920@qq.com, NWPU, LIC=WHYH9-4QZ3T-RA6DM-X88HE-W7ZGX-PRRUB
+IDE-Version: ¶ÃVision V5.24.2.0
+Copyright (C) 2017 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: w s, w, LIC=76F5U-S28YQ-9UF4U-STHVB-XLR2A-7JCDQ
  
 Tool Versions:
-Toolchain:       MDK-ARM Plus  Version: 5.38.0.0
-Toolchain Path:  D:\code\stm32\keil5\Core\ARM\ARMCC\Bin
-C Compiler:      Armcc.exe V5.06 update 7 (build 960)
-Assembler:       Armasm.exe V5.06 update 7 (build 960)
-Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
-Library Manager: ArmAr.exe V5.06 update 7 (build 960)
-Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
-CPU DLL:         SARMCM3.DLL V5.38.0.0
-Dialog DLL:      DCM.DLL V1.17.5.0
-Target DLL:      CMSIS_AGDI.dll V1.33.15.0
-Dialog DLL:      TCM.DLL V1.56.4.0
+Toolchain:       MDK-ARM Plus  Version: 5.24.1
+Toolchain Path:  D:\hardware\keil5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 5 (build 528)
+Assembler:       Armasm.exe V5.06 update 5 (build 528)
+Linker/Locator:  ArmLink.exe V5.06 update 5 (build 528)
+Library Manager: ArmAr.exe V5.06 update 5 (build 528)
+Hex Converter:   FromElf.exe V5.06 update 5 (build 528)
+CPU DLL:         SARMCM3.DLL V5.24.1
+Dialog DLL:      DCM.DLL V1.16.0.0
+Target DLL:      CMSIS_AGDI.dll V1.28.3.0
+Dialog DLL:      TCM.DLL V1.32.0.0
  
 <h2>Project:</h2>
-D:\data\ƒ‰√˚∑…øÿ\ƒ‰√˚Õÿø’’ﬂP2◊ ¡œ∞¸-20221006\8£∫∑…øÿ‘¥¬Îπ§≥Ã\uwb\ANO_Pioneer.uvprojx
+D:\code\github\UAV_NANO\ANO_Pioneer.uvprojx
 Project File Date:  07/24/2024
 
 <h2>Output:</h2>
-*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\code\stm32\keil5\Core\ARM\ARMCC\Bin'
+*** Using Compiler 'V5.06 update 5 (build 528)', folder: 'D:\hardware\keil5\ARM\ARMCC\Bin'
 Build target 'Ano_Pioneer'
-Note: source file '.\SRC\User\User_PID_Height.c' - object file renamed from '.\build\User_PID_Height.o' to '.\build\user_pid_height_1.o'.
-Note: source file '.\SRC\User\User_Task_Schduler.c' - object file renamed from '.\build\User_Task_Schduler.o' to '.\build\user_task_schduler_1.o'.
-compiling Ano_Scheduler.c...
-.\SRC\User\User_PID_YAW.h(11): warning:  #1295-D: Deprecated declaration User_PID_yaw_Init - give arg types
+compiling User_RC.c...
+SRC\User\User_PID_YAW.h(11): warning:  #1295-D: Deprecated declaration User_PID_yaw_Init - give arg types
   void User_PID_yaw_Init();//ËØ∑ÊîæÂú®All_PID_InitÈáåÈù¢
-.\SRC\User\User_PID_XY.h(8): warning:  #1295-D: Deprecated declaration User_PID_XY_Init - give arg types
+SRC\User\User_PID_XY.h(8): warning:  #1295-D: Deprecated declaration User_PID_XY_Init - give arg types
   void User_PID_XY_Init();
-.\SRC\User\User_OPENMV_Cal.h(14): warning:  #1295-D: Deprecated declaration User_OPENMV_DXDY_Cal - give arg types
+SRC\User\User_OPENMV_Cal.h(14): warning:  #1295-D: Deprecated declaration User_OPENMV_DXDY_Cal - give arg types
   void User_OPENMV_DXDY_Cal();
-.\SRC\User\User_OPENMV_DataRecieve.h(20): warning:  #1295-D: Deprecated declaration Loss_XY_Data - give arg types
+SRC\User\User_OPENMV_DataRecieve.h(20): warning:  #1295-D: Deprecated declaration Loss_XY_Data - give arg types
    void Loss_XY_Data();
-.\SRC\User\User_WayPoint_Control.h(13): warning:  #1295-D: Deprecated declaration Cal_WayPoint_Error - give arg types
+SRC\User\User_WayPoint_Control.h(13): warning:  #1295-D: Deprecated declaration Cal_WayPoint_Error - give arg types
   void Cal_WayPoint_Error();//ËÆ°ÁÆóxyËØØÂ∑ÆÔºåÈÄÅÂÖ•pid
-.\SRC\User\User_WayPoint_Control.h(17): warning:  #1-D: last line of file ends without a newline
+SRC\User\User_WayPoint_Control.h(17): warning:  #1-D: last line of file ends without a newline
   #endif
-.\SRC\User\User_WayPoint_Control.h(13): warning:  #1295-D: Deprecated declaration Cal_WayPoint_Error - give arg types
+SRC\User\User_WayPoint_Control.h(13): warning:  #1295-D: Deprecated declaration Cal_WayPoint_Error - give arg types
   void Cal_WayPoint_Error();//ËÆ°ÁÆóxyËØØÂ∑ÆÔºåÈÄÅÂÖ•pid
-.\SRC\User\User_WayPoint_Control.h(17): warning:  #1-D: last line of file ends without a newline
+SRC\User\User_WayPoint_Control.h(17): warning:  #1-D: last line of file ends without a newline
   #endif
-SRC\applications\Ano_Scheduler.c: 8 warnings, 0 errors
-linking...
-Program Size: Code=106924 RO-data=2828 RW-data=1328 ZI-data=15144  
-FromELF: creating hex file...
-After Build - User command #1: fromelf.exe --bin -o ./AnoPioneerPro.bin ./build/Ano_Pioneer.axf
-".\build\ANO_Pioneer.axf" - 0 Error(s), 8 Warning(s).
+SRC\User\User_RC.c(101): error: At end of source:  #67: expected a "}"
+SRC\User\User_RC.c: 8 warnings, 1 error
+compiling User_OPENMV_Cal.c...
+SRC\User\User_PID_XY.h(8): warning:  #1295-D: Deprecated declaration User_PID_XY_Init - give arg types
+  void User_PID_XY_Init();
+SRC\User\User_OPENMV_Cal.h(14): warning:  #1295-D: Deprecated declaration User_OPENMV_DXDY_Cal - give arg types
+  void User_OPENMV_DXDY_Cal();
+SRC\User\User_OPENMV_Cal.c(19): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+      real_dx_ = (float)pixel_dy_ * 
+IXEL_CM;
+SRC\User\User_OPENMV_Cal.c(20): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+      real_dy_ = (float)pixel_dx_ * 
+IXEL_CM;
+SRC\User\User_OPENMV_Cal.c(23): error:  #20: identifier "real_dx" is undefined
+  				if(real_dx < 5 && real_dy_ <5)
+SRC\User\User_OPENMV_Cal.c(41): warning:  #1-D: last line of file ends without a newline
+  }
+SRC\User\User_OPENMV_Cal.c: 5 warnings, 1 error
+".\build\ANO_Pioneer.axf" - 2 Error(s), 13 Warning(s).
 
 <h2>Software Packages used:</h2>
 
 Package Vendor: Keil
-                http://www.keil.com/pack/Keil.STM32F4xx_DFP.2.16.0.pack
-                Keil.STM32F4xx_DFP.2.16.0
+                https://www.keil.com/pack/Keil.STM32F4xx_DFP.2.17.1.pack
+                Keil.STM32F4xx_DFP.2.17.1
                 STMicroelectronics STM32F4 Series Device Support, Drivers and Examples
 
 <h2>Collection of Component include folders:</h2>
-  D:/code/stm32/keil5/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include
+  .\RTE\_Ano_Pioneer
+  D:\hardware\keil5\ARM\PACK\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:02
+Target not created.
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>

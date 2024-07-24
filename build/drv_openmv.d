@@ -4,7 +4,7 @@
 .\build\drv_openmv.o: .\SRC\fc_specific\config.h
 .\build\drv_openmv.o: .\Libraries\CMSIS\ST\STM32F4xx\Include\stm32f4xx.h
 .\build\drv_openmv.o: .\Libraries\CMSIS\Include\core_cm4.h
-.\build\drv_openmv.o: D:\code\stm32\keil5\Core\ARM\ARMCC\Bin\..\include\stdint.h
+.\build\drv_openmv.o: D:\hardware\keil5\ARM\ARMCC\Bin\..\include\stdint.h
 .\build\drv_openmv.o: .\Libraries\CMSIS\Include\core_cmInstr.h
 .\build\drv_openmv.o: .\Libraries\CMSIS\Include\core_cmFunc.h
 .\build\drv_openmv.o: .\Libraries\CMSIS\Include\core_cm4_simd.h

@@ -1,4 +1,4 @@
---cpu=Cortex-M4.fp.sp
+--cpu=Cortex-M4.fp
 ".\build\stm32f4xx_it.o"
 ".\build\ano_usb.o"
 ".\build\usb_config.o"
@@ -15,8 +15,8 @@
 ".\build\ano_opmv_cbtracking_ctrl.o"
 ".\build\ano_opmv_linetracking_ctrl.o"
 ".\build\ano_of_decofusion.o"
-".\build\user_pid_height_1.o"
-".\build\user_task_schduler_1.o"
+".\build\user_pid_height.o"
+".\build\user_task_schduler.o"
 ".\build\user_rc.o"
 ".\build\user_pid_xy.o"
 ".\build\user_pid_yaw.o"

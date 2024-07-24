@@ -5,7 +5,7 @@
 .\build\user_rc.o: .\SRC\fc_specific\config.h
 .\build\user_rc.o: .\Libraries\CMSIS\ST\STM32F4xx\Include\stm32f4xx.h
 .\build\user_rc.o: .\Libraries\CMSIS\Include\core_cm4.h
-.\build\user_rc.o: D:\code\stm32\keil5\Core\ARM\ARMCC\Bin\..\include\stdint.h
+.\build\user_rc.o: D:\hardware\keil5\ARM\ARMCC\Bin\..\include\stdint.h
 .\build\user_rc.o: .\Libraries\CMSIS\Include\core_cmInstr.h
 .\build\user_rc.o: .\Libraries\CMSIS\Include\core_cmFunc.h
 .\build\user_rc.o: .\Libraries\CMSIS\Include\core_cm4_simd.h
@@ -51,4 +51,4 @@
 .\build\user_rc.o: SRC\User\User_WayPoint_Control.h
 .\build\user_rc.o: SRC\User\User_RC.h
 .\build\user_rc.o: SRC\User\User_WayPoint_Control.h
-.\build\user_rc.o: D:\code\stm32\keil5\Core\ARM\ARMCC\Bin\..\include\stdio.h
+.\build\user_rc.o: D:\hardware\keil5\ARM\ARMCC\Bin\..\include\stdio.h

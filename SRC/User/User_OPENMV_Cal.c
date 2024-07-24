@@ -20,7 +20,15 @@ void User_OPENMV_DXDY_Cal()
     real_dy_ = (float)pixel_dx_ * PIXEL_CM;
 		if(control_state_openmv_localization)
 		{
-			  Set_Target_XY(real_dx_,real_dy_);
+				if(real_dx < 5 && real_dy_ <5)
+				{
+					Set_Target_XY(0,0);
+				}
+				else
+				{
+					Set_Target_XY(real_dx_,real_dy_);
+				}
+				
 		}
     
 }

@@ -5,7 +5,7 @@
 .\build\user_pid_xy.o: .\SRC\fc_specific\config.h
 .\build\user_pid_xy.o: .\Libraries\CMSIS\ST\STM32F4xx\Include\stm32f4xx.h
 .\build\user_pid_xy.o: .\Libraries\CMSIS\Include\core_cm4.h
-.\build\user_pid_xy.o: D:\code\stm32\keil5\Core\ARM\ARMCC\Bin\..\include\stdint.h
+.\build\user_pid_xy.o: D:\hardware\keil5\ARM\ARMCC\Bin\..\include\stdint.h
 .\build\user_pid_xy.o: .\Libraries\CMSIS\Include\core_cmInstr.h
 .\build\user_pid_xy.o: .\Libraries\CMSIS\Include\core_cmFunc.h
 .\build\user_pid_xy.o: .\Libraries\CMSIS\Include\core_cm4_simd.h
@@ -40,4 +40,4 @@
 .\build\user_pid_xy.o: .\SRC\fc_general\Ano_Pid.h
 .\build\user_pid_xy.o: .\SRC\applications\Ano_ProgramCtrl_User.h
 .\build\user_pid_xy.o: .\SRC\fc_general\Ano_Math.h
-.\build\user_pid_xy.o: D:\code\stm32\keil5\Core\ARM\ARMCC\Bin\..\include\stdio.h
+.\build\user_pid_xy.o: D:\hardware\keil5\ARM\ARMCC\Bin\..\include\stdio.h
