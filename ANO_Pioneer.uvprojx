@@ -510,16 +510,6 @@
           <GroupName>User</GroupName>
           <Files>
             <File>
-              <FileName>User_IMU_DataSend.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\SRC\User\User_IMU_DataSend.c</FilePath>
-            </File>
-            <File>
-              <FileName>User_IMU_DataSend.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\SRC\User\User_IMU_DataSend.h</FilePath>
-            </File>
-            <File>
               <FileName>User_PID_Height.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\SRC\User\User_PID_Height.c</FilePath>
@@ -528,26 +518,6 @@
               <FileName>User_PID_Height.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\SRC\User\User_PID_Height.h</FilePath>
-            </File>
-            <File>
-              <FileName>User_ROS_ControlFly.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\SRC\User\User_ROS_ControlFly.c</FilePath>
-            </File>
-            <File>
-              <FileName>User_ROS_ControlFly.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\SRC\User\User_ROS_ControlFly.h</FilePath>
-            </File>
-            <File>
-              <FileName>User_ROS_DataRecieve.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\SRC\User\User_ROS_DataRecieve.c</FilePath>
-            </File>
-            <File>
-              <FileName>User_ROS_DataRecieve.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\SRC\User\User_ROS_DataRecieve.h</FilePath>
             </File>
             <File>
               <FileName>User_Task_Schduler.c</FileName>

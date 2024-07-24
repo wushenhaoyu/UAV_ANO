@@ -37,7 +37,6 @@
 #include "Ano_OF_DecoFusion.h"
 #include "Ano_Imu_Task.h"
 #include "Drv_BSP.h"
-#include "User_IMU_DataSend.h"
 #include "User_RC.h"
 #include "User_PID_Height.h"
 #include "User_PID_YAW.h"
@@ -138,7 +137,6 @@ static void Loop_100Hz(void)	//10ms执行一次
 			test_rT[1]= GetSysTime_us ();
 			test_rT[2] = (u32)(test_rT[1] - test_rT[0]) ;	
 			
-	User_IMU_DataSend();
 	
 	RC_task(10);	
 

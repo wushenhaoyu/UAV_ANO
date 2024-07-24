@@ -14,14 +14,6 @@ void RC_task(u8 ms)
 				{
 						one_key_take_off();
 				}
-				else if(RC_task_time_2 == 10000)
-				{
-					Set_Target_yaw(imu_data.yaw + 90);
-				}
-				else if(RC_task_time_2 == 15000)
-				{
-					Set_Target_yaw(imu_data.yaw - 90);
-				}
 				/*else if (RC_task_time_2 == 10000)
 				{
 					Program_Ctrl_User_Set_HXYcmps(10,0);

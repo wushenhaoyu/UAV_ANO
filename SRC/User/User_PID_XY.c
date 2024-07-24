@@ -50,7 +50,7 @@ void  User_PID_XY_Ctrl(float dT_s)
         );
         X_out = X_val.out ;
         Y_out = Y_val.out ;
-        Program_Ctrl_User_Set_HXYcmps(LIMIT(X_out,-15,15),LIMIT(Y_out,-15,15));
+        Program_Ctrl_User_Set_HXYcmps(LIMIT(X_out,-30,30),LIMIT(Y_out,-30,30));
 				/*sprintf(x_str, "%f", X_out);
 
 				sprintf(y_str, "%f", Y_out);
