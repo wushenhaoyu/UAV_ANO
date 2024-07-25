@@ -83,7 +83,7 @@ void User_TakeOff_Init(u8 ms)
     //User_FlyState_Manager(WAYPOINT_CTRL,CTRL_ON); //稳定起飞位置
 }
 
-u8 land_task_time = 0;//降落任务计时
+u32 land_task_time = 0;//降落任务计时
 /**
  * @brief 精准降落任务，返回值0正在进行，返回值1代表完成
  */

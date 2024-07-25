@@ -1085,8 +1085,8 @@ Image Symbol Table
     F_KI                                     0x200000c0   Data           4  ano_of_decofusion.o(.data)
     .data                                    0x200000c4   Section       16  user_pid_height.o(.data)
     height_out                               0x200000d0   Data           4  user_pid_height.o(.data)
-    .data                                    0x200000d4   Section        5  user_task_schduler.o(.data)
-    .data                                    0x200000da   Section        4  user_rc.o(.data)
+    .data                                    0x200000d4   Section        8  user_task_schduler.o(.data)
+    .data                                    0x200000dc   Section        4  user_rc.o(.data)
     .data                                    0x200000e0   Section       24  user_pid_xy.o(.data)
     X_out                                    0x200000f0   Data           4  user_pid_xy.o(.data)
     Y_out                                    0x200000f4   Data           4  user_pid_xy.o(.data)
@@ -2146,9 +2146,9 @@ Image Symbol Table
     feedback                                 0x200000cc   Data           4  user_pid_height.o(.data)
     task_state                               0x200000d4   Data           1  user_task_schduler.o(.data)
     user_task_time                           0x200000d6   Data           2  user_task_schduler.o(.data)
-    land_task_time                           0x200000d8   Data           1  user_task_schduler.o(.data)
-    RC_task_time_2                           0x200000da   Data           2  user_rc.o(.data)
-    RC_task_time_3                           0x200000dc   Data           2  user_rc.o(.data)
+    land_task_time                           0x200000d8   Data           4  user_task_schduler.o(.data)
+    RC_task_time_2                           0x200000dc   Data           2  user_rc.o(.data)
+    RC_task_time_3                           0x200000de   Data           2  user_rc.o(.data)
     EN_XY                                    0x200000e0   Data           1  user_pid_xy.o(.data)
     X_err                                    0x200000e4   Data           4  user_pid_xy.o(.data)
     Y_err                                    0x200000e8   Data           4  user_pid_xy.o(.data)
@@ -2514,10 +2514,8 @@ Memory Map of the image
     0x20000091   COMPRESSED   0x00000003   PAD
     0x20000094   COMPRESSED   0x00000030   Data   RW          715    .data               ano_of_decofusion.o
     0x200000c4   COMPRESSED   0x00000010   Data   RW          742    .data               user_pid_height.o
-    0x200000d4   COMPRESSED   0x00000005   Data   RW          789    .data               user_task_schduler.o
-    0x200000d9   COMPRESSED   0x00000001   PAD
-    0x200000da   COMPRESSED   0x00000004   Data   RW          833    .data               user_rc.o
-    0x200000de   COMPRESSED   0x00000002   PAD
+    0x200000d4   COMPRESSED   0x00000008   Data   RW          789    .data               user_task_schduler.o
+    0x200000dc   COMPRESSED   0x00000004   Data   RW          833    .data               user_rc.o
     0x200000e0   COMPRESSED   0x00000018   Data   RW          857    .data               user_pid_xy.o
     0x200000f8   COMPRESSED   0x00000018   Data   RW          880    .data               user_pid_yaw.o
     0x20000110   COMPRESSED   0x00000004   Data   RW          907    .data               user_openmv_datarecieve.o
@@ -2697,13 +2695,13 @@ Image component sizes
        480         56          0         24        128       1739   user_pid_xy.o
        520         64          0         24         64       2278   user_pid_yaw.o
        208         26          0          4          0        970   user_rc.o
-       320         42          0          5          0       2006   user_task_schduler.o
+       320         42          0          8          0       2006   user_task_schduler.o
        200         32          0         26          0       1729   user_wayponit_control.o
 
     ----------------------------------------------------------------------
     105980       7006       2828       1344      15144     696023   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-         4          0          3         34         17          0   (incl. Padding)
+         4          0          3         31         17          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
