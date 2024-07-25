@@ -2,7 +2,7 @@
 .\build\ano_flyctrl.o: SRC\applications\Ano_FlyCtrl.h
 .\build\ano_flyctrl.o: .\Libraries\CMSIS\ST\STM32F4xx\Include\stm32f4xx.h
 .\build\ano_flyctrl.o: .\Libraries\CMSIS\Include\core_cm4.h
-.\build\ano_flyctrl.o: D:\hardware\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\build\ano_flyctrl.o: D:\code\stm32\keil5\Core\ARM\ARMCC\Bin\..\include\stdint.h
 .\build\ano_flyctrl.o: .\Libraries\CMSIS\Include\core_cmInstr.h
 .\build\ano_flyctrl.o: .\Libraries\CMSIS\Include\core_cmFunc.h
 .\build\ano_flyctrl.o: .\Libraries\CMSIS\Include\core_cm4_simd.h

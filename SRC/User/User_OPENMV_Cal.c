@@ -5,7 +5,10 @@ int32_t pixel_dx_ = 0;
 int32_t pixel_dy_ = 0;
 float real_dx_ = 0;
 float real_dy_ = 0;
+u8 cnt_detect = 0;
 u8 control_state_openmv_localization = 0;
+u8 flag_stable = 0; //0:不稳定  1:二级稳定状态  2:一级稳定状态
+u8 stable_lim = 20;
 
 void User_OPENMV_Localization(float dT_s)
 {
@@ -19,18 +22,46 @@ void User_OPENMV_DXDY_Cal()
     real_dx_ = (float)pixel_dy_ * PIXEL_CM;
     real_dy_ = (float)pixel_dx_ * PIXEL_CM;
 		if(control_state_openmv_localization)
-		{
-				if(real_dx < 5 && real_dy_ <5)
-				{
-					Set_Target_XY(0,0);
-				}
-				else
-				{
-					Set_Target_XY(real_dx_,real_dy_);
-				}
-				
+		{	
+				Change_stable_state();
+				Set_Target_XY(real_dx_,real_dy_,stable_lim);
 		}
     
+}
+void Change_stable_state()
+{
+				switch(flag_stable)
+			{
+				case 0:
+							if(real_dx_ <= 12 && real_dy_ <= 12)
+							{
+									cnt_detect += 1 ;
+							}
+								stable_lim = 20;
+							if(cnt_detect == 20)
+							{
+									flag_stable = 1;
+									cnt_detect = 0;	
+							}
+								break;
+				case 1:
+							if(real_dx_ <= 8 && real_dy_ <= 8)
+							{
+									cnt_detect += 1 ;
+							}
+							stable_lim = 10;
+							if(cnt_detect == 20)
+							{
+									flag_stable = 2;
+									cnt_detect = 0;	
+									stable_lim = 5;
+							}
+								break;
+			}
+}
+void Clear_Flag_Stable()
+{
+	flag_stable = 0;
 }
 
 void Set_OPENMV_DXDY(int32_t dx,int32_t dy)

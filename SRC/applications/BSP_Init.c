@@ -122,8 +122,8 @@ u8 All_Init()
 	All_PID_Init();               		//PID初始化
 	
 	Delay_ms(100);					//延时		
-	Drv_GpsPin_Init();				//GPS初始化 串口1
-	
+	//Drv_GpsPin_Init();				//GPS初始化 串口1
+	uart1_init(115200);
 	Drv_HeatingInit();
 	//
 	Sensor_Basic_Init();

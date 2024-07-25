@@ -1,4 +1,4 @@
---cpu=Cortex-M4.fp
+--cpu=Cortex-M4.fp.sp
 ".\build\stm32f4xx_it.o"
 ".\build\ano_usb.o"
 ".\build\usb_config.o"

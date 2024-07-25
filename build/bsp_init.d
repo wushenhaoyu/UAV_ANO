@@ -4,7 +4,7 @@
 .\build\bsp_init.o: .\SRC\fc_specific\config.h
 .\build\bsp_init.o: .\Libraries\CMSIS\ST\STM32F4xx\Include\stm32f4xx.h
 .\build\bsp_init.o: .\Libraries\CMSIS\Include\core_cm4.h
-.\build\bsp_init.o: D:\hardware\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\build\bsp_init.o: D:\code\stm32\keil5\Core\ARM\ARMCC\Bin\..\include\stdint.h
 .\build\bsp_init.o: .\Libraries\CMSIS\Include\core_cmInstr.h
 .\build\bsp_init.o: .\Libraries\CMSIS\Include\core_cmFunc.h
 .\build\bsp_init.o: .\Libraries\CMSIS\Include\core_cm4_simd.h
@@ -46,7 +46,7 @@
 .\build\bsp_init.o: .\SRC\fc_general\ANO_Math.h
 .\build\bsp_init.o: .\SRC\drivers\Drv_w25qxx.h
 .\build\bsp_init.o: .\SRC\drivers\Drv_i2c_soft.h
-.\build\bsp_init.o: D:\hardware\keil5\ARM\ARMCC\Bin\..\include\time.h
+.\build\bsp_init.o: D:\code\stm32\keil5\Core\ARM\ARMCC\Bin\..\include\time.h
 .\build\bsp_init.o: .\SRC\drivers\Drv_laser.h
 .\build\bsp_init.o: .\SRC\fc_specific\Ano_FlightCtrl.h
 .\build\bsp_init.o: .\SRC\fc_general\Ano_Filter.h

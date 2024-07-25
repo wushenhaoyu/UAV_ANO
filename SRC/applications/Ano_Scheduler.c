@@ -119,7 +119,7 @@ static void Loop_100Hz(void)	//10ms执行一次
 	Flight_Mode_Set(10);
 	
 	//
-	GPS_Data_Processing_Task(10);
+	//GPS_Data_Processing_Task(10);
 	
 	/*高度速度环控制*/
 	Alt_1level_Ctrl(10e-3f);
@@ -151,6 +151,7 @@ static void Loop_100Hz(void)	//10ms执行一次
 	
 	//User_WayPoint_Control(10e-3f);
 	
+	/*位置环控制*/
 	User_PID_XY_Ctrl(10e-3f);
 }
 

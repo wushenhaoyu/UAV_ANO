@@ -5,7 +5,7 @@
 .\build\user_task_schduler.o: .\SRC\fc_specific\config.h
 .\build\user_task_schduler.o: .\Libraries\CMSIS\ST\STM32F4xx\Include\stm32f4xx.h
 .\build\user_task_schduler.o: .\Libraries\CMSIS\Include\core_cm4.h
-.\build\user_task_schduler.o: D:\hardware\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\build\user_task_schduler.o: D:\code\stm32\keil5\Core\ARM\ARMCC\Bin\..\include\stdint.h
 .\build\user_task_schduler.o: .\Libraries\CMSIS\Include\core_cmInstr.h
 .\build\user_task_schduler.o: .\Libraries\CMSIS\Include\core_cmFunc.h
 .\build\user_task_schduler.o: .\Libraries\CMSIS\Include\core_cm4_simd.h

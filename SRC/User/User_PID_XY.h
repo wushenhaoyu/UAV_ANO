@@ -7,7 +7,7 @@
 #include "Ano_Parameter.h"
 void User_PID_XY_Init();
 void  User_PID_XY_Ctrl(float dT_s);
-void Set_Target_XY(float X, float Y);
+void Set_Target_XY(float X, float Y , float lim);
 extern u8 EN_XY;
 #endif
 

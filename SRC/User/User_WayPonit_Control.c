@@ -26,19 +26,11 @@ void Cal_WayPoint_Error()//计算xy误差，送入pid
 {
     x_error = x_target - x_current;
     y_error = y_target - y_current;
-    Set_Target_XY(x_error,y_error);
-    if(x_error <= 0.15 && y_error <= 0.15)
+    Set_Target_XY(x_error,y_error,30);
+    if(x_error <= 5 && y_error <= 5)
     {
         flag_arrive_the_waypoint = 1; //到达航点附近
     }
 }
 
-void User_WayPoint_Control(float dT_s)//航点PID控制
-{
-    if(control_state_waypoint && flag.auto_take_off_land == AUTO_TAKE_OFF_FINISH)
-    {
-        Cal_WayPoint_Error();
-        User_PID_XY_Ctrl(dT_s);
-    }
-}//作废
 

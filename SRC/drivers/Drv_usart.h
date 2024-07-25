@@ -4,6 +4,7 @@
 #include "stm32f4xx.h"
 #include "include.h"
 extern u8 Rx_Buf[];
+void uart1_init(u32 bound);
 void Usart2_Init(u32 br_num);
 void Usart2_IRQ(void);
 void Usart2_Send(unsigned char *DataToSend ,u8 data_num);

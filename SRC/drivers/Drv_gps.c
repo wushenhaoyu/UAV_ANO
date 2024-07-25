@@ -1,9 +1,9 @@
 /******************** (C) COPYRIGHT 2017 ANO Tech ********************************
- * ×÷Õß    £ºÄäÃû¿Æ´´
- * ¹ÙÍø    £ºwww.anotc.com
- * ÌÔ±¦    £ºanotc.taobao.com
- * ¼¼ÊõQÈº £º190169595
- * ÃèÊö    £ºSPL06ÆøÑ¹¼ÆÇý¶¯
+ * ï¿½ï¿½ï¿½ï¿½    ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ´ï¿½
+ * ï¿½ï¿½ï¿½ï¿½    ï¿½ï¿½www.anotc.com
+ * ï¿½Ô±ï¿½    ï¿½ï¿½anotc.taobao.com
+ * ï¿½ï¿½ï¿½ï¿½QÈº ï¿½ï¿½190169595
+ * ï¿½ï¿½ï¿½ï¿½    ï¿½ï¿½SPL06ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 **********************************************************************************/
 #include "drv_spl06.h"
 
@@ -193,21 +193,21 @@ _fc_ext_sensor_st ext_sens;
 void GPS_data_analysis(void)
 {
 	s32 gps_hmsl,gps_N_vel,gps_E_vel,gps_D_vel;
-	Gps_information.last_N_vel = (float)Gps_information.N_vel;							//¼ÇÂ¼ÉÏ´ÎÄÏ±±ÏòËÙ¶È
-	Gps_information.last_E_vel = (float)Gps_information.E_vel;							//¼ÇÂ¼ÉÏ´Î¶«Î÷ÏòËÙ¶È
+	Gps_information.last_N_vel = (float)Gps_information.N_vel;							//ï¿½ï¿½Â¼ï¿½Ï´ï¿½ï¿½Ï±ï¿½ï¿½ï¿½ï¿½Ù¶ï¿½
+	Gps_information.last_E_vel = (float)Gps_information.E_vel;							//ï¿½ï¿½Â¼ï¿½Ï´Î¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù¶ï¿½
 	
-	Gps_information.satellite_num = GPS_data_buff[29];									//ÎÀÐÇÊýÁ¿
-	Gps_information.longitude = GPS_data_buff[30] + (GPS_data_buff[31]<<8) + (GPS_data_buff[32]<<16) + (GPS_data_buff[33]<<24);		//¾­¶È
-	Gps_information.latitude  = GPS_data_buff[34] + (GPS_data_buff[35]<<8) + (GPS_data_buff[36]<<16) + (GPS_data_buff[37]<<24);		//Î³¶È
-	gps_hmsl                  = GPS_data_buff[42] + (GPS_data_buff[43]<<8) + (GPS_data_buff[44]<<16) + (GPS_data_buff[45]<<24);		//º£°Î
-	gps_N_vel = Gps_information.N_vel	  = GPS_data_buff[54] + (GPS_data_buff[55]<<8) + (GPS_data_buff[56]<<16) + (GPS_data_buff[57]<<24);		//ÄÏÏòËÙ¶È
-	gps_E_vel = Gps_information.E_vel	  = GPS_data_buff[58] + (GPS_data_buff[59]<<8) + (GPS_data_buff[60]<<16) + (GPS_data_buff[61]<<24);		//¶«ÏòËÙ¶È
-	gps_D_vel                             = GPS_data_buff[62] + (GPS_data_buff[63]<<8) + (GPS_data_buff[64]<<16) + (GPS_data_buff[65]<<24);		//µØÏòËÙ¶È
+	Gps_information.satellite_num = GPS_data_buff[29];									//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	Gps_information.longitude = GPS_data_buff[30] + (GPS_data_buff[31]<<8) + (GPS_data_buff[32]<<16) + (GPS_data_buff[33]<<24);		//ï¿½ï¿½ï¿½ï¿½
+	Gps_information.latitude  = GPS_data_buff[34] + (GPS_data_buff[35]<<8) + (GPS_data_buff[36]<<16) + (GPS_data_buff[37]<<24);		//Î³ï¿½ï¿½
+	gps_hmsl                  = GPS_data_buff[42] + (GPS_data_buff[43]<<8) + (GPS_data_buff[44]<<16) + (GPS_data_buff[45]<<24);		//ï¿½ï¿½ï¿½ï¿½
+	gps_N_vel = Gps_information.N_vel	  = GPS_data_buff[54] + (GPS_data_buff[55]<<8) + (GPS_data_buff[56]<<16) + (GPS_data_buff[57]<<24);		//ï¿½ï¿½ï¿½ï¿½ï¿½Ù¶ï¿½
+	gps_E_vel = Gps_information.E_vel	  = GPS_data_buff[58] + (GPS_data_buff[59]<<8) + (GPS_data_buff[60]<<16) + (GPS_data_buff[61]<<24);		//ï¿½ï¿½ï¿½ï¿½ï¿½Ù¶ï¿½
+	gps_D_vel                             = GPS_data_buff[62] + (GPS_data_buff[63]<<8) + (GPS_data_buff[64]<<16) + (GPS_data_buff[65]<<24);		//ï¿½ï¿½ï¿½ï¿½ï¿½Ù¶ï¿½
 	
-	Gps_information.N_vel /=10;								//µ¥Î»»»Ëã cm/s
-	Gps_information.E_vel /=10;								//µ¥Î»»»Ëã cm/s	
+	Gps_information.N_vel /=10;								//ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ cm/s
+	Gps_information.E_vel /=10;								//ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ cm/s	
 
-	if (Gps_information.satellite_num >= 6 && Gps_information.new_pos_get == 0)			//ÎÀÐÇÊýÁ¿µ½´ï6¿Å,ÇÒµÚÒ»´Î»ñÈ¡¾­Î³¶Èµã
+	if (Gps_information.satellite_num >= 6 && Gps_information.new_pos_get == 0)			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½6ï¿½ï¿½,ï¿½Òµï¿½Ò»ï¿½Î»ï¿½È¡ï¿½ï¿½Î³ï¿½Èµï¿½
 	{
 		Gps_information.new_pos_get = 1;
 		Gps_information.start_longitude = Gps_information.longitude;
@@ -225,7 +225,7 @@ void GPS_data_analysis(void)
 
 	Gps_information.run_heart++;	
 	
-	//ÄäÃûv7Ð­Òé´¦Àí
+	//ï¿½ï¿½ï¿½ï¿½v7Ð­ï¿½é´¦ï¿½ï¿½
 	ext_sens.fc_gps.st_data.FIX_STA = 2;//null
 	ext_sens.fc_gps.st_data.S_NUM = Gps_information.satellite_num;
 	ext_sens.fc_gps.st_data.LNG = Gps_information.longitude;
@@ -234,7 +234,7 @@ void GPS_data_analysis(void)
 	ext_sens.fc_gps.st_data.N_SPE = gps_N_vel / 10;	  //mm->cm
 	ext_sens.fc_gps.st_data.E_SPE = gps_E_vel / 10;	  //mm->cm
 	ext_sens.fc_gps.st_data.D_SPE = gps_D_vel / 10;	  //mm->cm
-	//°´Ð­Òé´¦Àí¸³Öµ
+	//ï¿½ï¿½Ð­ï¿½é´¦ï¿½ï¿½ï¿½ï¿½Öµ
 //	u32 tmp;
 //	tmp = ubx.pvt_data.pDOP * 0.01f;
 //	tmp = LIMIT(tmp, 0, 200);
@@ -250,6 +250,7 @@ void GPS_data_analysis(void)
 
 void Uart1_GPS_IRQ(void)  
 {  
+	/*
 	unsigned char RX_dat;  
 
 	if ( GPS_UART->SR & USART_SR_ORE ) //ORE??
@@ -289,17 +290,17 @@ void Uart1_GPS_IRQ(void)
 			{
 				GPS_get_cnt = 0;
 				
-				if (GPS_ubx_check_sum(GPS_data_buff))			//GPSÊý¾ÝÐ£Ñé
+				if (GPS_ubx_check_sum(GPS_data_buff))			//GPSï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½
 				{
-					GPS_data_analysis();						//GPSÊý¾Ý½âÎö
+					GPS_data_analysis();						//GPSï¿½ï¿½ï¿½Ý½ï¿½ï¿½ï¿½
 				}
 			}
 		}			
-	}	
+	}	*/
 } 
 
 
-void WCXY_Acc_Get_Task(void)//×îÐ¡ÖÜÆÚ
+void WCXY_Acc_Get_Task(void)//ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½
 {
 	wcx_acc_use += 0.02f *(imu_data.w_acc[X] - wcx_acc_use);
 	wcy_acc_use += 0.02f *(imu_data.w_acc[Y] - wcy_acc_use);
@@ -314,10 +315,10 @@ void GPS_Data_Processing_Task(u8 dT_ms)
 	if (Gps_information.run_heart != last_gps_heart)
 	{
 		last_gps_heart = Gps_information.run_heart;
-		err_N_step = (float)(Gps_information.N_vel - Gps_information.last_N_vel)/10;		//¼ÆËãÁ½´ÎGPSËÙ¶ÈÎó²î×÷Îª²åÖµ
+		err_N_step = (float)(Gps_information.N_vel - Gps_information.last_N_vel)/10;		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½GPSï¿½Ù¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Öµ
 		err_E_step = (float)(Gps_information.E_vel - Gps_information.last_E_vel)/10;
 	}
-	Gps_information.last_N_vel += err_N_step;									//¶ÔËÙ¶È²åÖµ
+	Gps_information.last_N_vel += err_N_step;									//ï¿½ï¿½ï¿½Ù¶È²ï¿½Öµ
 	Gps_information.last_E_vel += err_E_step;
 	
 	if (Gps_information.satellite_num >= 6 
@@ -325,21 +326,21 @@ void GPS_Data_Processing_Task(u8 dT_ms)
 	{
 		if(1) //(!flag.taking_off)
 		{
-			switchs.gps_on = 1;							//¿ªÆôGPSÄ£Ê½
+			switchs.gps_on = 1;							//ï¿½ï¿½ï¿½ï¿½GPSÄ£Ê½
 		}
 	}
 	else
 	{
-		switchs.gps_on = 0;							//¹Ø±ÕGPSÄ£Ê½
+		switchs.gps_on = 0;							//ï¿½Ø±ï¿½GPSÄ£Ê½
 	}
-	//Ã»ÓÐÆð·ÉµÄÊ±ºò²ÅÄÜ¼ÇÂ¼·µº½µã
+	//Ã»ï¿½ï¿½ï¿½ï¿½Éµï¿½Ê±ï¿½ï¿½ï¿½ï¿½Ü¼ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if (!flag.taking_off)
 	{
 		if (switchs.gps_on)
 		{
-			Gps_information.hope_latitude = Gps_information.latitude_offset;		//¼ÇÂ¼ÆÚÍûÎ»ÖÃÎªµ±Ç°Î»ÖÃ
+			Gps_information.hope_latitude = Gps_information.latitude_offset;		//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½Îªï¿½ï¿½Ç°Î»ï¿½ï¿½
 			Gps_information.hope_longitude = Gps_information.longitude_offset;
-			Gps_information.home_latitude = Gps_information.latitude_offset;		//¼ÇÂ¼·µº½µãÎ»ÖÃ
+			Gps_information.home_latitude = Gps_information.latitude_offset;		//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
 			Gps_information.home_longitude = Gps_information.longitude_offset;
 			home_locked = 1;
 		}
@@ -352,8 +353,8 @@ void GPS_Data_Processing_Task(u8 dT_ms)
 			{
 				if (!Gps_information.Back_home_f)			
 				{
-					Gps_information.Back_home_f = TRUE;		//´ò¿ª·µº½
-					Gps_information.hope_latitude = Gps_information.home_latitude;			//¸Ä±äÆÚÍûÎ»ÖÃÎªÆð·ÉµãÎ»ÖÃ
+					Gps_information.Back_home_f = TRUE;		//ï¿½ò¿ª·ï¿½ï¿½ï¿½
+					Gps_information.hope_latitude = Gps_information.home_latitude;			//ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½Îªï¿½ï¿½Éµï¿½Î»ï¿½ï¿½
 					Gps_information.hope_longitude = Gps_information.home_longitude;
 				}
 			}	
@@ -361,8 +362,8 @@ void GPS_Data_Processing_Task(u8 dT_ms)
 			{
 				if (Gps_information.Back_home_f)			
 				{
-					Gps_information.Back_home_f = FALSE;	//¹Ø±Õ·µº½
-					Gps_information.hope_latitude = Gps_information.latitude_offset;		//¸Ä±äÆÚÍûÎ»ÖÃÎªµ±Ç°Î»ÖÃ
+					Gps_information.Back_home_f = FALSE;	//ï¿½Ø±Õ·ï¿½ï¿½ï¿½
+					Gps_information.hope_latitude = Gps_information.latitude_offset;		//ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½Îªï¿½ï¿½Ç°Î»ï¿½ï¿½
 					Gps_information.hope_longitude = Gps_information.longitude_offset;
 				}
 			}

@@ -22,6 +22,7 @@
         "ano_parameter.h": "c",
         "user_waypoint_control.h": "c",
         "user_rc.h": "c",
-        "ano_programctrl_user.h": "c"
+        "ano_programctrl_user.h": "c",
+        "drv_gps.h": "c"
     }
 }
