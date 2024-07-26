@@ -72,7 +72,7 @@ void User_OPENMV_DataRecieve(u8 data) //length = 8
 
  void Loss_XY_Data()//目标丢失视野
  {
-	 Set_OPENMV_DXDY(0, 0);
+		Clear_Flag_Stable();
  }
 
  void Identify_Color_Shape(u8 *data)
@@ -108,7 +108,7 @@ void Deal_With_XY_Data(uint8_t *data) {
     // 使用类型转换和指针操作解包数据
     x = (int32_t)((data[0] << 24) | (data[1] << 16) | (data[2] << 8) | data[3]);
     y = (int32_t)((data[4] << 24) | (data[5] << 16) | (data[6] << 8) | data[7]);
-
+		flag_detect = 1;
     Set_OPENMV_DXDY(x, y);
 
     // 将 x 和 y 转换为字符串

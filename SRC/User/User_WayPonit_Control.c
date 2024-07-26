@@ -26,7 +26,7 @@ void Cal_WayPoint_Error()//计算xy误差，送入pid
 {
     x_error = x_target - x_current;
     y_error = y_target - y_current;
-    Set_Target_XY(x_error,y_error,30);
+    Set_Target_XY(-y_error,x_error,30);
     if(x_error <= 5 && y_error <= 5)
     {
         flag_arrive_the_waypoint = 1; //到达航点附近

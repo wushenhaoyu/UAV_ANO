@@ -9,6 +9,7 @@ u8 cnt_detect = 0;
 u8 control_state_openmv_localization = 0;
 u8 flag_stable = 0; //0:不稳定  1:二级稳定状态  2:一级稳定状态
 u8 stable_lim = 20;
+u8 flag_detect = 0; //是否检测到了物体
 
 void User_OPENMV_Localization(float dT_s)
 {
@@ -30,38 +31,45 @@ void User_OPENMV_DXDY_Cal()
 }
 void Change_stable_state()
 {
-				switch(flag_stable)
+			if(flag_detect)
 			{
-				case 0:
-							if(real_dx_ <= 12 && real_dy_ <= 12)
-							{
-									cnt_detect += 1 ;
-							}
-								stable_lim = 20;
-							if(cnt_detect == 20)
-							{
-									flag_stable = 1;
-									cnt_detect = 0;	
-							}
-								break;
-				case 1:
-							if(real_dx_ <= 8 && real_dy_ <= 8)
-							{
-									cnt_detect += 1 ;
-							}
-							stable_lim = 10;
-							if(cnt_detect == 20)
-							{
-									flag_stable = 2;
-									cnt_detect = 0;	
-									stable_lim = 5;
-							}
-								break;
+					switch(flag_stable)
+				{
+					case 0:
+								if(real_dx_ <= 12 && real_dy_ <= 12)
+								{
+										cnt_detect += 1 ;
+								}
+									stable_lim = 20;
+								if(cnt_detect == 20)
+								{
+										flag_stable = 1;
+										cnt_detect = 0;	
+								}
+									break;
+					case 1:
+								if(real_dx_ <= 8 && real_dy_ <= 8)
+								{
+										cnt_detect += 1 ;
+								}
+								stable_lim = 10;
+								if(cnt_detect == 20)
+								{
+										flag_stable = 2;
+										cnt_detect = 0;	
+										stable_lim = 5;
+								}
+									break;
+				}
 			}
+			flag_detect = 0;
 }
 void Clear_Flag_Stable()
 {
 	flag_stable = 0;
+	flag_detect = 0;
+	stable_lim = 20;
+	cnt_detect = 0;
 }
 
 void Set_OPENMV_DXDY(int32_t dx,int32_t dy)

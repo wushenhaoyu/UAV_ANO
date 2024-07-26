@@ -11,8 +11,8 @@
 #include "User_WayPoint_Control.h"
 void User_Task_Schduler(u8 ms);
 void Set_Task_State(u8 data);
-void User_FlyState_Manager(u8 state,u8 action);
 void User_TakeOff_Init(u8 ms);
+void User_Land_Task_Init();
 u8 User_Land_Task(u8 ms);
 #define HEIGHT_CTRL         0x01
 #define YAW_CTRL            0x02

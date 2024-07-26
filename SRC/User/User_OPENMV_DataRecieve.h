@@ -18,4 +18,6 @@ void User_OPENMV_DataRecieve(u8 data) ;
  void Identify_Color_Shape(u8 *data);
 void Deal_With_XY_Data(uint8_t *data);
  void Loss_XY_Data();
+ void Reverse_Direction();
+ extern u8 flag_detect;
 #endif
