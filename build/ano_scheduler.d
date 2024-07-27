@@ -77,3 +77,7 @@
 .\build\ano_scheduler.o: .\SRC\User\User_RC.h
 .\build\ano_scheduler.o: .\SRC\User\User_WayPoint_Control.h
 .\build\ano_scheduler.o: .\SRC\User\User_PID_Height.h
+.\build\ano_scheduler.o: .\SRC\User\User_Car_Data.h
+.\build\ano_scheduler.o: .\SRC\User\User_WayPoint_Control.h
+.\build\ano_scheduler.o: .\SRC\User\User_Extend_Data.h
+.\build\ano_scheduler.o: .\SRC\User\User_WayPoint_Control.h

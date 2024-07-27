@@ -471,7 +471,7 @@ static void DTFrameSend(u8 type, u8 id_addr, u8 addr)
 	CycleSendData[_cnt++] = check_sum1;
 	CycleSendData[_cnt++] = check_sum2;
 
-	ANO_DT_Send_Data(type,CycleSendData, _cnt);
+	//ANO_DT_Send_Data(type,CycleSendData, _cnt);
 }
 
 //===========================================================
@@ -502,7 +502,7 @@ static void OtherSendDataCheck(void)
 	{
 		if(OtherSendData[i].WTS)
 		{
-			ANO_DT_Send_Data(OtherSendData[i].type,OtherSendData[i].data,OtherSendData[i].len);
+			//ANO_DT_Send_Data(OtherSendData[i].type,OtherSendData[i].data,OtherSendData[i].len);
 			OtherSendData[i].WTS = 0;
 			return;
 		}

@@ -1,13 +1,13 @@
 #include "User_WayPoint_Control.h"
-float x_current    =    0       ;
-float y_current    =    0       ;
-float x_target     =    0       ;
-float y_target     =    0       ;
-float x_error                   ;
-float y_error                   ;
+int x_current    =    0       ;
+int y_current    =    0       ;
+int x_target     =    0       ;
+int y_target     =    0       ;
+int x_error                   ;
+int y_error                   ;
 u8 control_state_waypoint = 0;
 u8 flag_arrive_the_waypoint = 0;  //到达航点标志
-void Update_Current_Location(float x,float y)//更新当前位置
+void Update_Current_Location(int x,int y)//更新当前位置
 {
     x_current = x;
     y_current = y;
@@ -16,7 +16,7 @@ void Update_Current_Location(float x,float y)//更新当前位置
 				Cal_WayPoint_Error();
 		}
 }
-void Set_Target_WayPoint(float x,float y)//设定航点
+void Set_Target_WayPoint(int x,int y)//设定航点
 {
     x_target = x;
     y_target = y;

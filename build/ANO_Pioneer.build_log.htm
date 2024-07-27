@@ -22,13 +22,62 @@ Dialog DLL:      TCM.DLL V1.56.4.0
  
 <h2>Project:</h2>
 D:\data\ÄäÃû·É¿Ø\ÄäÃûÍØ¿ÕÕßP2×ÊÁÏ°ü-20221006\8£º·É¿ØÔ´Âë¹¤³Ì\UAV_NANO\ANO_Pioneer.uvprojx
-Project File Date:  07/24/2024
+Project File Date:  07/27/2024
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\code\stm32\keil5\Core\ARM\ARMCC\Bin'
 Build target 'Ano_Pioneer'
+compiling Ano_Scheduler.c...
+.\SRC\User\User_PID_YAW.h(11): warning:  #1295-D: Deprecated declaration User_PID_yaw_Init - give arg types
+  void User_PID_yaw_Init();//è¯·æ”¾åœ¨All_PID_Inité‡Œé¢
+.\SRC\User\User_PID_XY.h(8): warning:  #1295-D: Deprecated declaration User_PID_XY_Init - give arg types
+  void User_PID_XY_Init();
+.\SRC\User\User_OPENMV_Cal.h(15): warning:  #1295-D: Deprecated declaration User_OPENMV_DXDY_Cal - give arg types
+  void User_OPENMV_DXDY_Cal();
+.\SRC\User\User_OPENMV_Cal.h(16): warning:  #1295-D: Deprecated declaration Update_Detect_Num - give arg types
+  void Update_Detect_Num();
+.\SRC\User\User_OPENMV_Cal.h(18): warning:  #1295-D: Deprecated declaration Clear_Flag_Stable - give arg types
+  void Clear_Flag_Stable();
+.\SRC\User\User_OPENMV_Cal.h(19): warning:  #1295-D: Deprecated declaration Change_stable_state - give arg types
+  void Change_stable_state();
+.\SRC\User\User_OPENMV_DataRecieve.h(20): warning:  #1295-D: Deprecated declaration Loss_XY_Data - give arg types
+   void Loss_XY_Data();
+.\SRC\User\User_OPENMV_DataRecieve.h(21): warning:  #1295-D: Deprecated declaration Reverse_Direction - give arg types
+   void Reverse_Direction();
+.\SRC\User\User_WayPoint_Control.h(13): warning:  #1295-D: Deprecated declaration Cal_WayPoint_Error - give arg types
+  void Cal_WayPoint_Error();//è®¡ç®—xyè¯¯å·®ï¼Œé€å…¥pid
+.\SRC\User\User_WayPoint_Control.h(17): warning:  #1-D: last line of file ends without a newline
+  #endif
+.\SRC\User\User_WayPoint_Control.h(13): warning:  #1295-D: Deprecated declaration Cal_WayPoint_Error - give arg types
+  void Cal_WayPoint_Error();//è®¡ç®—xyè¯¯å·®ï¼Œé€å…¥pid
+.\SRC\User\User_WayPoint_Control.h(17): warning:  #1-D: last line of file ends without a newline
+  #endif
+.\SRC\User\User_Task_Schduler.h(15): warning:  #1295-D: Deprecated declaration User_Land_Task_Init - give arg types
+  void User_Land_Task_Init();
+.\SRC\User\User_Car_Data.h(12): warning:  #1-D: last line of file ends without a newline
+  #endif
+.\SRC\User\User_WayPoint_Control.h(13): warning:  #1295-D: Deprecated declaration Cal_WayPoint_Error - give arg types
+  void Cal_WayPoint_Error();//è®¡ç®—xyè¯¯å·®ï¼Œé€å…¥pid
+.\SRC\User\User_WayPoint_Control.h(17): warning:  #1-D: last line of file ends without a newline
+  #endif
+.\SRC\User\User_WayPoint_Control.h(13): warning:  #1295-D: Deprecated declaration Cal_WayPoint_Error - give arg types
+  void Cal_WayPoint_Error();//è®¡ç®—xyè¯¯å·®ï¼Œé€å…¥pid
+.\SRC\User\User_WayPoint_Control.h(17): warning:  #1-D: last line of file ends without a newline
+  #endif
+.\SRC\User\User_Extend_Data.h(10): warning:  #1295-D: Deprecated declaration Beep - give arg types
+  void Beep();
+.\SRC\User\User_Extend_Data.h(11): warning:  #1295-D: Deprecated declaration Laser_Turn_On - give arg types
+  void Laser_Turn_On();
+.\SRC\User\User_Extend_Data.h(12): warning:  #1295-D: Deprecated declaration Laser_Turn_Off - give arg types
+  void Laser_Turn_Off();
+.\SRC\User\User_Extend_Data.h(18): warning:  #1-D: last line of file ends without a newline
+  #endif
+SRC\applications\Ano_Scheduler.c: 22 warnings, 0 errors
+linking...
+Program Size: Code=107316 RO-data=2316 RW-data=1328 ZI-data=14256  
+FromELF: creating hex file...
 After Build - User command #1: fromelf.exe --bin -o ./AnoPioneerPro.bin ./build/Ano_Pioneer.axf
-".\build\ANO_Pioneer.axf" - 0 Error(s), 0 Warning(s).
+".\build\ANO_Pioneer.axf" - 0 Error(s), 22 Warning(s).
 
 <h2>Software Packages used:</h2>
 

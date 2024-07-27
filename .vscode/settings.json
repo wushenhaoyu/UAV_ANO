@@ -23,6 +23,7 @@
         "user_waypoint_control.h": "c",
         "user_rc.h": "c",
         "ano_programctrl_user.h": "c",
-        "drv_gps.h": "c"
+        "drv_gps.h": "c",
+        "user_car_data.h": "c"
     }
 }

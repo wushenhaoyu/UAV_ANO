@@ -589,6 +589,26 @@
               <FileType>1</FileType>
               <FilePath>.\SRC\User\User_WayPonit_Control.c</FilePath>
             </File>
+            <File>
+              <FileName>User_Car_Data.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SRC\User\User_Car_Data.c</FilePath>
+            </File>
+            <File>
+              <FileName>User_Car_Data.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\SRC\User\User_Car_Data.h</FilePath>
+            </File>
+            <File>
+              <FileName>User_Extend_Data.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\SRC\User\User_Extend_Data.h</FilePath>
+            </File>
+            <File>
+              <FileName>User_Extend_Data.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SRC\User\User_Extend_Data.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

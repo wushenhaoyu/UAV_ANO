@@ -101,7 +101,8 @@ u8 All_Init()
 	//	
 //	Uart4_Init(19200);	//接优像光流
 //  Uart5_Init(115200);//接大功率激光	
-	Uart5_Init(500000); //数传
+	//Uart5_Init(500000); //数传
+	Uart5_Init(9600);//无限串口
 //	MyDelayMs(200);	
 	//优像光流初始化
 //	of_init_type = (Drv_OFInit()==0)?0:2;

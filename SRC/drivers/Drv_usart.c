@@ -14,6 +14,8 @@
 #include "Drv_UP_Flow.h"
 #include "User_OPENMV_DataRecieve.h"
 #include "User_WayPoint_Control.h"
+#include "User_Car_Data.h"
+#include "User_Extend_Data.h"
 
 //uart1
 void uart1_init(u32 bound)
@@ -132,7 +134,7 @@ u8 count = 0;
 
 u8 Rx_Buf[256];	//串口接收缓存
 
-static const uint8_t auchCRCHi[] = {
+/*static const uint8_t auchCRCHi[] = {
     0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41, 0x01, 0xC0,
     0x80, 0x41, 0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41,
     0x00, 0xC1, 0x81, 0x40, 0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0,
@@ -251,7 +253,9 @@ void reved_uwb_data(u8 data)
 //		}
 		count = 0;
 	}
-}	
+}	*/
+
+
 
 void Usart2_IRQ ( void )
 {
@@ -268,7 +272,9 @@ void Usart2_IRQ ( void )
         USART_ClearITPendingBit ( USART2, USART_IT_RXNE ); //清除中断标志
 
         com_data = USART2->DR;
-			  reved_uwb_data(com_data);
+        User_Extend_DataRecieve(com_data);
+			  //reved_uwb_data(com_data);
+			//Uart5_Send(&com_data,1);
 			  //Get_Laser_data( com_data);
 			
         //AnoDTRxOneByteUart ( com_data );
@@ -534,15 +540,7 @@ void Uart4_Send ( unsigned char *DataToSend , u8 data_num )
 
 //====uart5
 
-u8 Blue_data[4] = {0,0,0,0};
 
-void Ger_Blue_data(u8 data)
-{
-	if(data == 0xa1)
-	{
-	  Blue_data[0] = 0xa1;
-	}
-}
 
 void Uart5_Init ( u32 br_num )
 {
@@ -619,10 +617,11 @@ void Uart5_IRQ ( void )
         USART_ClearITPendingBit ( UART5, USART_IT_RXNE ); //清除中断标志
 
         com_data = UART5->DR;
-			 Ger_Blue_data(com_data);
+        User_Car_DataRecieve(com_data);
+			 //Ger_Blue_data(com_data);
 		//====
 		//Drv_Laser_GetOneByte(com_data);
-		AnoDTRxOneByteUart ( com_data );
+		//AnoDTRxOneByteUart ( com_data );
     }
 
     //发送（进入移位）中断

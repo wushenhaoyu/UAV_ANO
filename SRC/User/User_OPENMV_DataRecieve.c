@@ -10,7 +10,6 @@ u8 u3_len_= 0;
 u8 u3_len_reg = 0;
 void User_OPENMV_DataRecieve(u8 data) //length = 8
 {
-    Usart3_Send(&data,1);
     switch (u3_state)
     {
 
