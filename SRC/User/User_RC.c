@@ -46,7 +46,9 @@ void RC_task(u8 ms)
 				 RC_task_time_3 += ms;
 					if(RC_task_time_3 == 1000)
 					{
-							
+							Set_Target_WayPoint(200,200);
+							EN_XY = 1;
+							control_state_waypoint = 1;
 					}
         
     }
@@ -54,7 +56,9 @@ void RC_task(u8 ms)
     {
                 if(RC_task_time_3 > 0)
 				{
-
+							EN_XY = 0;
+							control_state_waypoint = 0;
+							Program_Ctrl_User_Set_HXYcmps(0,0);
 				}
     }
 		

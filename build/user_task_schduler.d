@@ -51,3 +51,5 @@
 .\build\user_task_schduler.o: SRC\User\User_RC.h
 .\build\user_task_schduler.o: SRC\User\User_Task_Schduler.h
 .\build\user_task_schduler.o: SRC\User\User_WayPoint_Control.h
+.\build\user_task_schduler.o: SRC\User\User_PID_Height.h
+.\build\user_task_schduler.o: .\SRC\applications\Ano_OF.h

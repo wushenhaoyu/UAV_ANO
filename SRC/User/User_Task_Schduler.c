@@ -56,6 +56,7 @@ u8 User_Land_Task(u8 ms)//精准降落任务
 						EN_XY = 0;
             Program_Ctrl_User_Set_HXYcmps(0,0);//狠狠的定点
             one_key_land();
+            Set_Target_Height(20);
         }
 				if(flag.auto_take_off_land == AUTO_LAND)
         {

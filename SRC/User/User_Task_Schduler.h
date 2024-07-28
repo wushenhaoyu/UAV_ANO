@@ -9,6 +9,7 @@
 #include "User_PID_YAW.h"
 #include "User_RC.h"
 #include "User_WayPoint_Control.h"
+#include "User_PID_Height.h"
 void User_Task_Schduler(u8 ms);
 void Set_Task_State(u8 data);
 void User_TakeOff_Init(u8 ms);

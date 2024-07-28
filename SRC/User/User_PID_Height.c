@@ -18,7 +18,7 @@ void User_PID_Height_Init()//请放在All_PID_Init里面
 void User_PID_Height_Ctrl(float dT_s)
 {   
     static float height_out = 0.0f;
-    if(flag.auto_take_off_land == AUTO_TAKE_OFF_FINISH)
+    if(flag.auto_take_off_land == AUTO_TAKE_OFF_FINISH )
     {
         exp_ = height_target;
         feedback = jsdata.of_alt;

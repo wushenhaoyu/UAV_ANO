@@ -58,6 +58,7 @@
 .\build\drv_usart.o: .\SRC\User\User_RC.h
 .\build\drv_usart.o: .\SRC\User\User_Task_Schduler.h
 .\build\drv_usart.o: .\SRC\User\User_WayPoint_Control.h
+.\build\drv_usart.o: .\SRC\User\User_PID_Height.h
 .\build\drv_usart.o: .\SRC\User\User_Extend_Data.h
 .\build\drv_usart.o: .\SRC\User\User_WayPoint_Control.h
 .\build\drv_usart.o: .\SRC\applications\Ano_UWB.h

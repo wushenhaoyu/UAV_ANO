@@ -51,4 +51,6 @@
 .\build\user_rc.o: SRC\User\User_WayPoint_Control.h
 .\build\user_rc.o: SRC\User\User_RC.h
 .\build\user_rc.o: SRC\User\User_WayPoint_Control.h
+.\build\user_rc.o: SRC\User\User_PID_Height.h
+.\build\user_rc.o: .\SRC\applications\Ano_OF.h
 .\build\user_rc.o: D:\code\stm32\keil5\Core\ARM\ARMCC\Bin\..\include\stdio.h

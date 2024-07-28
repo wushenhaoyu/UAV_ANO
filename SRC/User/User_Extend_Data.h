@@ -10,6 +10,8 @@ void Deal_With_Extend_Data(u8 u2_func, u8 len, u8 *data);
 void Beep();
 void Laser_Turn_On();
 void Laser_Turn_Off();
+void Start_Location();
+void Stop_Location();
 #define IDLE    0
 #define CHECK   1
 #define LEN     2

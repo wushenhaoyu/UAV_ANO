@@ -214,7 +214,7 @@ unsigned char data_to_send[8]; // 缓冲区大小为8字节
     //x_current += 1;
 		//y_current += 1;
     Ano_Parame_Write_task(500);
-		User_Car_DataSend(data_to_send ,0x02 ,sizeof(data_to_send));
+		//User_Car_DataSend(data_to_send ,0x02 ,sizeof(data_to_send));
 
 }
 //系统任务配置，创建不同执行频率的“线程”

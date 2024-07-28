@@ -125,6 +125,7 @@ u8 All_Init()
 	Delay_ms(100);					//延时		
 	//Drv_GpsPin_Init();				//GPS初始化 串口1
 	uart1_init(115200);
+	Start_Location();		 //开启uwb定位
 	Drv_HeatingInit();
 	//
 	Sensor_Basic_Init();

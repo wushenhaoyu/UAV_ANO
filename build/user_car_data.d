@@ -52,5 +52,7 @@
 .\build\user_car_data.o: SRC\User\User_RC.h
 .\build\user_car_data.o: SRC\User\User_Task_Schduler.h
 .\build\user_car_data.o: SRC\User\User_WayPoint_Control.h
+.\build\user_car_data.o: SRC\User\User_PID_Height.h
+.\build\user_car_data.o: .\SRC\applications\Ano_OF.h
 .\build\user_car_data.o: D:\code\stm32\keil5\Core\ARM\ARMCC\Bin\..\include\stdio.h
 .\build\user_car_data.o: D:\code\stm32\keil5\Core\ARM\ARMCC\Bin\..\include\string.h
