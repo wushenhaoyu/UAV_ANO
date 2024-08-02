@@ -24,6 +24,8 @@
         "user_rc.h": "c",
         "ano_programctrl_user.h": "c",
         "drv_gps.h": "c",
-        "user_car_data.h": "c"
+        "user_car_data.h": "c",
+        "user_qr_data.h": "c",
+        "user_extend_data.h": "c"
     }
 }

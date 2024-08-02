@@ -221,10 +221,10 @@ void ANO_DT_Init(void)
 //===========================================================
 void ANO_DT_Send_Data(u8 type,u8 *dataToSend , u8 length)
 {
-	if((type & USE_HID))// && fc_sta.unlock_sta == 0)
+	/*if((type & USE_HID))// && fc_sta.unlock_sta == 0)
 		DT_SENDPTR_HID(dataToSend,length);
 	if(type & USE_U2)
-		DT_SENDPTR_U2(dataToSend, length);
+		DT_SENDPTR_U2(dataToSend, length);*/
 }
 //===========================================================
 //根据ID填充数据帧的data区域

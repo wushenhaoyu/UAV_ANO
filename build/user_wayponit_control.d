@@ -42,3 +42,17 @@
 .\build\user_wayponit_control.o: .\SRC\applications\Ano_ProgramCtrl_User.h
 .\build\user_wayponit_control.o: .\SRC\fc_general\Ano_Math.h
 .\build\user_wayponit_control.o: .\SRC\fc_general\Ano_Imu.h
+.\build\user_wayponit_control.o: SRC\User\User_PID_YAW.h
+.\build\user_wayponit_control.o: SRC\User\User_Extend_Data.h
+.\build\user_wayponit_control.o: SRC\User\User_Car_Data.h
+.\build\user_wayponit_control.o: SRC\User\User_Task_Schduler.h
+.\build\user_wayponit_control.o: .\SRC\fc_specific\Ano_FlightCtrl.h
+.\build\user_wayponit_control.o: .\SRC\fc_general\Ano_Filter.h
+.\build\user_wayponit_control.o: SRC\User\User_OPENMV_DataRecieve.h
+.\build\user_wayponit_control.o: SRC\User\User_Car_Data.h
+.\build\user_wayponit_control.o: SRC\User\User_Extend_Data.h
+.\build\user_wayponit_control.o: SRC\User\User_RC.h
+.\build\user_wayponit_control.o: SRC\User\User_Task_Schduler.h
+.\build\user_wayponit_control.o: SRC\User\User_PID_Height.h
+.\build\user_wayponit_control.o: .\SRC\applications\Ano_OF.h
+.\build\user_wayponit_control.o: SRC\User\User_QR_Data.h

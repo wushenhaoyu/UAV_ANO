@@ -16,50 +16,91 @@
 #include "User_WayPoint_Control.h"
 #include "User_Car_Data.h"
 #include "User_Extend_Data.h"
+#include "User_QR_Data.h"
 
 //uart1
-void uart1_init(u32 bound)
-{  	 
-	GPIO_InitTypeDef GPIO_InitStructure;
-	USART_InitTypeDef USART_InitStructure;
-	NVIC_InitTypeDef NVIC_InitStructure;
-	
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);	 //Enable the gpio clock //使能GPIO时钟
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1, ENABLE); //Enable the Usart clock //使能USART时钟
+// UART1初始化函数
 
-	GPIO_PinAFConfig(GPIOA,GPIO_PinSource9,GPIO_AF_USART1);	
-	GPIO_PinAFConfig(GPIOA,GPIO_PinSource10 ,GPIO_AF_USART1);	 
-	
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9|GPIO_Pin_10;
-	GPIO_InitStructure.GPIO_Mode=GPIO_Mode_AF;            //输出模式
-	GPIO_InitStructure.GPIO_OType=GPIO_OType_PP;          //推挽输出
-	GPIO_InitStructure.GPIO_Speed=GPIO_Speed_50MHz;       //高速50MHZ
-	GPIO_InitStructure.GPIO_PuPd=GPIO_PuPd_UP;            //上拉
-	GPIO_Init(GPIOA, &GPIO_InitStructure);  		          //初始化
-	
-  //UsartNVIC configuration //UsartNVIC配置
-	NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
-	//Preempt priority //抢占优先级
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority=1 ;
-	//Subpriority //子优先级
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;		
-	//Enable the IRQ channel //IRQ通道使能
-	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;	
-  //Initialize the VIC register with the specified parameters 
-	//根据指定的参数初始化VIC寄存器	
-	NVIC_Init(&NVIC_InitStructure);	
-	
-  //USART Initialization Settings 初始化设置
-	USART_InitStructure.USART_BaudRate = bound; //Port rate //串口波特率
-	USART_InitStructure.USART_WordLength = USART_WordLength_8b; //The word length is 8 bit data format //字长为8位数据格式
-	USART_InitStructure.USART_StopBits = USART_StopBits_1; //A stop bit //一个停止位
-	USART_InitStructure.USART_Parity = USART_Parity_No; //Prosaic parity bits //无奇偶校验位
-	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None; //No hardware data flow control //无硬件数据流控制
-	USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;	//Sending and receiving mode //收发模式
-	USART_Init(USART1, &USART_InitStructure); //Initialize serial port 1 //初始化串口1
-	
-	USART_ITConfig(USART1, USART_IT_RXNE, ENABLE); //Open the serial port to accept interrupts //开启串口接受中断
-	USART_Cmd(USART1, ENABLE);                     //Enable serial port 1 //使能串口1
+u8 Tx2Buffer[256];
+u8 Tx2Counter = 0;
+u8 count2 = 0;
+
+u8 Rx2_Buf[256];	//串口接收缓存
+void Usart1_Init(u32 baudrate) {
+    GPIO_InitTypeDef GPIO_InitStructure;
+    USART_InitTypeDef USART_InitStructure;
+    NVIC_InitTypeDef NVIC_InitStructure;
+
+    // 使能GPIOA和USART1时钟
+    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1, ENABLE);
+
+    // 配置PA9和PA10为复用推挽输出，用于USART1的TX和RX
+    GPIO_PinAFConfig(GPIOA, GPIO_PinSource9, GPIO_AF_USART1);
+    GPIO_PinAFConfig(GPIOA, GPIO_PinSource10, GPIO_AF_USART1);
+
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9 | GPIO_Pin_10;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+    GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+    GPIO_Init(GPIOA, &GPIO_InitStructure);
+
+    // 配置USART1中断优先级
+    NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
+    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+    NVIC_Init(&NVIC_InitStructure);
+
+    // 配置USART1
+    USART_InitStructure.USART_BaudRate = baudrate;
+    USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+    USART_InitStructure.USART_StopBits = USART_StopBits_1;
+    USART_InitStructure.USART_Parity = USART_Parity_No;
+    USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+    USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
+    USART_Init(USART1, &USART_InitStructure);
+
+    // 开启USART1接收中断
+    USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);
+    // 使能USART1
+    USART_Cmd(USART1, ENABLE);
+}
+
+// UART1中断服务函数
+void Usart1_IRQ(void) {
+    u8 com_data;
+
+    // 接收中断
+    if (USART_GetITStatus(USART1, USART_IT_RXNE)) {
+        USART_ClearITPendingBit(USART1, USART_IT_RXNE); // 清除中断标志
+        com_data = USART1->DR;
+        User_QR_DataRecieve(com_data);
+    }
+
+    // 发送中断
+    if (USART_GetITStatus(USART1, USART_IT_TXE)) {
+        // 如果有数据待发送，写入数据到数据寄存器
+        if (Tx2Counter < count2) {
+            USART1->DR = Tx2Buffer[Tx2Counter++];
+        } else {
+            // 如果所有数据发送完毕，关闭发送中断
+            USART_ITConfig(USART1, USART_IT_TXE, DISABLE);
+        }
+    }
+}
+
+// UART1发送函数
+void Usart1_Send(unsigned char *DataToSend, u8 data_num) {
+    u8 i;
+    for (i = 0; i < data_num; i++) {
+        Tx2Buffer[Tx2Counter++] = *(DataToSend + i);
+    }
+    if (!(USART1->CR1 & USART_CR1_TXEIE)) {
+        // 如果发送中断未启用，则启用它
+        USART_ITConfig(USART1, USART_IT_TXE, ENABLE);
+    }
 }
 //====uart2
 void Usart2_Init ( u32 br_num )

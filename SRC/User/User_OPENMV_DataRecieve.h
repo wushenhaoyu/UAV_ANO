@@ -1,8 +1,9 @@
 #ifndef __USER_OPENMV_DATARECIEVE_H
 #define __USER_OPENMV_DATARECIEVE_H
 #include "include.h"
-#include "User_OPENMV_Cal.h"
 #include "Drv_usart.h"
+#include "User_Car_Data.h"
+#include "User_Extend_Data.h"
 #define IDLE    0
 #define CHECK   1
 #define LEN     2
@@ -17,7 +18,6 @@ void Deal_With_OPENMV_Data(u8 func,u8 len,u8 *data);
 void User_OPENMV_DataRecieve(u8 data) ;
  void Identify_Color_Shape(u8 *data);
 void Deal_With_XY_Data(uint8_t *data);
- void Loss_XY_Data();
- void Reverse_Direction();
+void User_OPENMV_DataSend(u8 func,u8 len,u8 *data);
  extern u8 flag_detect;
 #endif

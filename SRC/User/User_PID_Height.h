@@ -11,5 +11,6 @@
 extern float height_target;
 void User_PID_Height_Init(void);
 void User_PID_Height_Ctrl(float dT_s);
-void Set_Target_Height(float data);
+void Set_Target_Height(float data,float lim);
+extern u8 flag_arrive_the_height;
 #endif

@@ -8,7 +8,10 @@ float yaw_target;
 float yaw_exp_;
 float yaw_feedback;
 float yaw_error;
+float yaw_vel_lim = 30;
 u8    control_state_yaw = 1;
+u8 direction_state = 0;//0:右 1:下 2:左 3:上
+u8 flag_arrvie_the_yaw = 0;//是否到底指定yaw附件？
 void User_PID_yaw_Init()//请放在All_PID_Init里面
 {
     yaw_arg.kp = Ano_Parame.set.pid_user_Yaw[KP];
@@ -35,6 +38,13 @@ float CalculateShortestPathError(float target, float current) {
     } else if (diff < -180.0f) {
         diff += 360.0f; // 从正方向移动
     }
+    if(my_abs(diff)<2)
+    {
+        flag_arrvie_the_yaw = 1;
+    }
+    else{
+        flag_arrvie_the_yaw = 0;
+    }
     return diff;
 }
 
@@ -51,7 +61,9 @@ void User_PID_yaw_Ctrl(float dT_s)
         yaw_feedback = NormalizeAngle(imu_data.yaw);
 
         // 使用最短路径误差
-				yaw_error = CalculateShortestPathError(yaw_target,yaw_feedback);
+		yaw_error = CalculateShortestPathError(yaw_target,yaw_feedback);
+        
+
 
         // 调整PID_calculate函数以使用误差而非直接的目标和反馈值
         PID_calculate(
@@ -66,7 +78,7 @@ void User_PID_yaw_Ctrl(float dT_s)
         );
 
         yaw_out = yaw_val.out;
-        Program_Ctrl_User_Set_YAWdps(LIMIT(yaw_out,-30,30));
+        Program_Ctrl_User_Set_YAWdps(LIMIT(yaw_out,-1 * yaw_vel_lim,yaw_vel_lim));
 
         // 创建一个更大的字符串缓冲区以容纳两个浮点数
         //char yaw_str[64]; // 增加缓冲区大小以防万一
@@ -78,7 +90,7 @@ void User_PID_yaw_Ctrl(float dT_s)
     }
 }
 
-void Set_Target_yaw(float data)
+void Set_Target_yaw(float data , float lim)
 {
     // Normalize the angle to be within -180 to 180 degrees
     while (data > 180.0f) {
@@ -87,8 +99,39 @@ void Set_Target_yaw(float data)
     while (data < -180.0f) {
         data += 360.0f;
     }
+    if(lim > 30)
+    {
+        lim = 30;
+    }else if(lim < 5)
+    {
+        yaw_vel_lim = 5;
+    }else
+    {
+		yaw_vel_lim = lim;
+    }
 
     // Now assign the normalized value to yaw_target
     yaw_target = data;
 }
 
+void Set_Direction(u8 direction,float lim)//在上电方向正确的情况下生效，上电方向自动为0度
+{
+    direction_state =  direction;
+    switch (direction)
+    {
+    case 0:
+        /* code */
+        Set_Target_yaw(0,lim);
+        break;
+    case 1:
+        Set_Target_yaw(90,lim);
+        break;
+    case 2:
+        Set_Target_yaw(180,lim);
+        break;
+    case 3:
+        Set_Target_yaw(270,lim);
+        break;
+    }
+
+}

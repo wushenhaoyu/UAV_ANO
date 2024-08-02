@@ -50,69 +50,41 @@ void User_OPENMV_DataRecieve(u8 data) //length = 8
 
     }
 }
-
+u8 number_ = 0;
  void	Deal_With_OPENMV_Data(u8 u3_func,u8 len,u8 *data)
- {
-	 
-    switch (u3_func)
+ {    
+    if(IsInitTaskTwo)
     {
-    case 0x01:/*0x01 识别颜色与形状 */
-        Identify_Color_Shape(data);
-        
-        break;
-    case 0x02://精准定位返回xy坐标偏差
-				Deal_With_XY_Data(data);
-        break;
-		case 0x03:
-				Loss_XY_Data();
-				break;
-    }
- }
-
- void Loss_XY_Data()//目标丢失视野
- {
-		Clear_Flag_Stable();
- }
-
- void Identify_Color_Shape(u8 *data)
- {
-    switch (data[0])
-    {
-        case RED:
-
+        switch (u3_func)
+        {
+        case 0x03:
+            User_QR_DataSend(0x03,1,data);
+            User_Car_DataSend(data,0x03,1);
+            IsStartTaskTwo = 1;
             break;
-        case BLUE:
-
+        }
+    }else{
+        switch (u3_func)
+        {
+        case 0x01:
             break;
-
-    }
-    switch (data[1])
-    {
-    case CIRCLE:
-        break;
-    case RECT:
-        break;
-    case TRIANGLE:
-        break;
+        case 0x02:
+            break;
+        case 0x03:
+            User_Car_DataSend(data,0x02,1);
+            break;
+        }
     }
  }
 
+void User_OPENMV_DataSend(u8 func,u8 len,u8 *data)
+{
+    u8 f = 0xAA;
+    u8 t = 0XAF;
+    Usart1_Send(&f,1);
+    Usart1_Send(&func,1);
+    Usart1_Send(&len,1);
+    Usart1_Send(data,len);
+    Usart1_Send(&t,1);
 
-
-void Deal_With_XY_Data(uint8_t *data) {
-    int32_t x = 0;
-    int32_t y = 0;
-    //char str[24]; // 足够大以存储格式化字符串
-
-    // 使用类型转换和指针操作解包数据
-    x = (int32_t)((data[0] << 24) | (data[1] << 16) | (data[2] << 8) | data[3]);
-    y = (int32_t)((data[4] << 24) | (data[5] << 16) | (data[6] << 8) | data[7]);
-		flag_detect = 1;
-    Set_OPENMV_DXDY(x, y);
-
-    // 将 x 和 y 转换为字符串
-    //snprintf(str, sizeof(str), "X: %d, Y: %d", x, y);
-
-    // 可以在这里使用str，例如打印或存储
-    //AnoDTSendStr(USE_HID|USE_U2,SWJ_ADDR,LOG_COLOR_GREEN,str);
 }

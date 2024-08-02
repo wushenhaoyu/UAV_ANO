@@ -43,13 +43,13 @@ unsigned char GPS_ubx_check_sum(unsigned char *Buffer)
 
 static void UART_Write_D(const unsigned char *send_buff, unsigned char len)
 {
-	unsigned char i;
+	/*unsigned char i;
 	
 	for (i = 0; i < len; i++)
 	{
 		while(USART_GetFlagStatus(GPS_UART, USART_FLAG_TC)== RESET);
 		USART_SendData(GPS_UART,send_buff[i]);
-	}
+	}*/
 }
 
 

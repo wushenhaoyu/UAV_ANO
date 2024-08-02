@@ -570,16 +570,6 @@
               <FilePath>.\SRC\User\User_OPENMV_DataRecieve.h</FilePath>
             </File>
             <File>
-              <FileName>User_OPENMV_Cal.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\SRC\User\User_OPENMV_Cal.c</FilePath>
-            </File>
-            <File>
-              <FileName>User_OPENMV_Cal.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\SRC\User\User_OPENMV_Cal.h</FilePath>
-            </File>
-            <File>
               <FileName>User_WayPoint_Control.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\SRC\User\User_WayPoint_Control.h</FilePath>
@@ -608,6 +598,26 @@
               <FileName>User_Extend_Data.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\SRC\User\User_Extend_Data.c</FilePath>
+            </File>
+            <File>
+              <FileName>User_QR_Data.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\SRC\User\User_QR_Data.h</FilePath>
+            </File>
+            <File>
+              <FileName>User_QR_Data.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SRC\User\User_QR_Data.c</FilePath>
+            </File>
+            <File>
+              <FileName>User_QR_Cal.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\SRC\User\User_QR_Cal.h</FilePath>
+            </File>
+            <File>
+              <FileName>User_QR_Cal.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SRC\User\User_QR_Cal.c</FilePath>
             </File>
           </Files>
         </Group>

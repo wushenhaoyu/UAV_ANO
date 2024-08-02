@@ -8,6 +8,7 @@ u8 u2_state = IDLE;
 u8 u2_func = 0;
 u8 u2_len_= 0;
 u8 u2_len_reg = 0;
+u8 flag_get_location = 0;
 void User_Extend_DataRecieve(u8 data) //length = 8
 {
 
@@ -60,11 +61,13 @@ void Deal_With_Extend_Data(u8 u2_func, u8 len, u8 *data)
             int16_t x = (data[0] << 8) | data[1];
             int16_t y = (data[2] << 8) | data[3];
             Update_Current_Location(x,y);
+			if(!flag_get_location)
+			{
+					Beep();
+			}
+			flag_get_location = 1;
             // 在这里处理x和y坐标
             // 例如：printf("X: %d, Y: %d\n", x, y);
-            char str[40];
-            sprintf(str,"X: %d, Y: %d\n", x, y);
-						AnoDTSendStr(USE_HID|USE_U2,SWJ_ADDR,LOG_COLOR_GREEN,str);
         }
         break;
     case 0x02:
@@ -92,17 +95,12 @@ void Beep()
     User_Extend_DataSend(0x01,1,data);
 }
 
-void Laser_Turn_On()
+void Laser_Turn_On()//激光亮0.5s
 {
     u8 data[1] = {0x01};
     User_Extend_DataSend(0x02,1,data);
 }
 
-void Laser_Turn_Off()
-{
-    u8 data[1] = {0x00};
-    User_Extend_DataSend(0x02,1,data);
-}
 void Start_Location()//开启uwb定位，注意先为uwb通电，后给飞控通电
 {
     u8 data[1] = {0x01};
