@@ -3,6 +3,7 @@
 #include "include.h"
 #include "User_OPENMV_Cal.h"
 #include "Drv_usart.h"
+#include "User_Extend_Data.h"
 #define IDLE    0
 #define CHECK   1
 #define LEN     2

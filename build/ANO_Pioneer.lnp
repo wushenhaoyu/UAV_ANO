@@ -25,6 +25,8 @@
 ".\build\user_wayponit_control.o"
 ".\build\user_car_data.o"
 ".\build\user_extend_data.o"
+".\build\user_qr_data.o"
+".\build\user_qr_cal.o"
 ".\build\ano_fcdata.o"
 ".\build\ano_filter.o"
 ".\build\ano_imu.o"

@@ -52,12 +52,6 @@ void  User_PID_XY_Ctrl(float dT_s)
         X_out = X_val.out ;
         Y_out = Y_val.out ;
         Program_Ctrl_User_Set_HXYcmps(LIMIT(X_out,-1 * lim_ ,lim_),LIMIT(Y_out,-1 * lim_,lim_));
-				/*sprintf(x_str, "%f", X_out);
-				sprintf(y_str, "%f", Y_out);
-				AnoDTSendStr(USE_HID|USE_U2,SWJ_ADDR,LOG_COLOR_GREEN,x_str);
-				AnoDTSendStr(USE_HID|USE_U2,SWJ_ADDR,LOG_COLOR_GREEN,y_str);*/
-
-
     }
 }
 

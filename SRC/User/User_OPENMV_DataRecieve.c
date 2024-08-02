@@ -57,10 +57,10 @@ void User_OPENMV_DataRecieve(u8 data) //length = 8
     switch (u3_func)
     {
     case 0x01:/*0x01 识别颜色与形状 */
-        Identify_Color_Shape(data);
-        
+        //Identify_Color_Shape(data);
         break;
     case 0x02://精准定位返回xy坐标偏差
+				//Deal_With_XY_Data(data);
 				Deal_With_XY_Data(data);
         break;
 		case 0x03:
@@ -71,7 +71,7 @@ void User_OPENMV_DataRecieve(u8 data) //length = 8
 
  void Loss_XY_Data()//目标丢失视野
  {
-		Clear_Flag_Stable();
+		//Clear_Flag_Stable();
  }
 
  void Identify_Color_Shape(u8 *data)
@@ -108,8 +108,8 @@ void Deal_With_XY_Data(uint8_t *data) {
     x = (int32_t)((data[0] << 24) | (data[1] << 16) | (data[2] << 8) | data[3]);
     y = (int32_t)((data[4] << 24) | (data[5] << 16) | (data[6] << 8) | data[7]);
 		flag_detect = 1;
+		//Beep();
     Set_OPENMV_DXDY(x, y);
-
     // 将 x 和 y 转换为字符串
     //snprintf(str, sizeof(str), "X: %d, Y: %d", x, y);
 

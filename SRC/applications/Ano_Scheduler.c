@@ -161,7 +161,6 @@ static void Loop_100Hz(void)	//10ms执行一次
 
 static void Loop_50Hz(void)	//20ms执行一次
 {	
-
 	//
 	ImuServices_20ms_c();
 	/*罗盘数据处理任务*/
@@ -199,22 +198,22 @@ static void Loop_2Hz(void)   // 500ms执行一次
 unsigned char data_to_send[8]; // 缓冲区大小为8字节
 
     // 手动将 x_current 分解成4个字节并存储
-		data_to_send[0] = (x_current >> 0) & 0xFF;
-    data_to_send[1] = (x_current >> 8) & 0xFF;
-    data_to_send[2] = (x_current >> 16) & 0xFF;
-    data_to_send[3] = (x_current >> 24) & 0xFF;
+	//	data_to_send[0] = (x_current >> 0) & 0xFF;
+   // data_to_send[1] = (x_current >> 8) & 0xFF;
+   // data_to_send[2] = (x_current >> 16) & 0xFF;
+   // data_to_send[3] = (x_current >> 24) & 0xFF;
 
     // 手动将 y_current 分解成4个字节并存储
-    data_to_send[4] = (y_current >> 0) & 0xFF;
-    data_to_send[5] = (y_current >> 8) & 0xFF;
-    data_to_send[6] = (y_current >> 16) & 0xFF;
-    data_to_send[7] = (y_current >> 24) & 0xFF;
+   // data_to_send[4] = (y_current >> 0) & 0xFF;
+   // data_to_send[5] = (y_current >> 8) & 0xFF;
+    //data_to_send[6] = (y_current >> 16) & 0xFF;
+    //data_to_send[7] = (y_current >> 24) & 0xFF;
 
     //Uart5_Send(data_to_send, sizeof(data_to_send));
-    //x_current += 1;
-		//y_current += 1;
+    x_current += 1;
+		y_current += 1;
     Ano_Parame_Write_task(500);
-		//User_Car_DataSend(data_to_send ,0x02 ,sizeof(data_to_send));
+		//User_Car_DataSend(data_to_send ,0x01 ,sizeof(data_to_send));
 
 }
 //系统任务配置，创建不同执行频率的“线程”

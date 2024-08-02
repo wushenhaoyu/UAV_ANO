@@ -26,6 +26,7 @@
 #include "Drv_bmi088.h"
 #include "Ano_Imu_Data.h"
 #include "Drv_BSP.h"
+#include "User_Extend_Data.h"
 
 u8 MagType = MAG_NUL;
 
@@ -124,7 +125,7 @@ u8 All_Init()
 	
 	Delay_ms(100);					//延时		
 	//Drv_GpsPin_Init();				//GPS初始化 串口1
-	uart1_init(115200);
+	Usart1_Init(115200);
 	Start_Location();		 //开启uwb定位
 	Drv_HeatingInit();
 	//
